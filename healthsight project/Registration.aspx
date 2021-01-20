@@ -48,9 +48,9 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 210px; height: 30px;">ID / NRIC *</td>
+            <td style="width: 210px; height: 30px;">&nbsp;NRIC *</td>
             <td class="RPtd" style="height: 30px">
-                <asp:TextBox ID="tbIDno" runat="server"></asp:TextBox>
+                <asp:TextBox ID="tbNRIC" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>

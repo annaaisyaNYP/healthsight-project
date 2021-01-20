@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyDBService.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -26,6 +27,24 @@ namespace MyDBService
                 composite.StringValue += "Suffix";
             }
             return composite;
+        }
+
+        public Patient GetPatientByNRIC(string nric)
+        {
+            Patient patient = new Patient();
+            return patient.SelectByNRIC(nric);
+        }
+
+        public Patient GetPatientByEmail(string email)
+        {
+            Patient patient = new Patient();
+            return patient.SelectByEmail(email);
+        }
+
+        public int CreatePatient(string name, string nric, DateTime dob, string gen, string nat, string addr, string medcon, string email, double phoneNo)
+        {
+            Patient patient = new Patient(name, nric, dob, gen, nat, addr, medcon, email, phoneNo);
+            return patient.Insert();
         }
     }
 }

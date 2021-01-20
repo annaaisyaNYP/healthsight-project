@@ -4,8 +4,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "healthsight project", "healthsight project\healthsight project.csproj", "{22A68D7D-804F-44A6-BFA4-6F48414D668B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AC1D213D-0D5A-4C06-B0E8-441662F25F01} = {AC1D213D-0D5A-4C06-B0E8-441662F25F01}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyDBService", "MyDBService\MyDBService.csproj", "{AC1D213D-0D5A-4C06-B0E8-441662F25F01}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{852498A9-00FD-4DAA-942F-CCF61E5C212B}"
+	ProjectSection(SolutionItems) = preProject
+		Detail Log.txt = Detail Log.txt
+		README.txt = README.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

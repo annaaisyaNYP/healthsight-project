@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyDBService.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -18,6 +19,15 @@ namespace MyDBService
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         // TODO: Add your service operations here
+        [OperationContract]
+        Patient GetPatientByNRIC(string nric);
+
+        [OperationContract]
+        Patient GetPatientByEmail(string email);
+
+        [OperationContract]
+        int CreatePatient(string name, string nric, DateTime dob, string gen, string nat, string addr, string medcon, string email, double phoneNo);
+
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
