@@ -7,6 +7,12 @@
         <caption>
             Fields marked * are required</caption>
         <tr>
+            <td style="width: 210px; height: 30px">&nbsp;</td>
+            <td style="height: 30px">
+                <asp:Label ID="lbMsg" runat="server" ForeColor="Red"></asp:Label>
+            </td>
+        </tr>
+        <tr>
             <td style="width: 210px; height: 30px">Full Name *</td>
             <td style="height: 30px">
                 <asp:TextBox ID="tbName" runat="server"></asp:TextBox>
@@ -103,13 +109,13 @@
             </td>
         </tr>
         <tr>
-            <td class="modal-sm" style="width: 210px">&nbsp;</td>
-            <td>&nbsp;</td>
+            <td class="modal-sm" style="width: 210px; height: 17px;"></td>
+            <td style="height: 17px"></td>
         </tr>
         <tr>
             <td class="modal-sm" style="width: 210px">&nbsp;</td>
             <td>
-                <asp:Button ID="btnSignUp" runat="server" Text="Sign Up" />
+                <asp:Button ID="btnSignUp" runat="server" Text="Sign Up" OnClick="btnSignUp_OnClick"/>
             </td>
         </tr>
         <tr>
