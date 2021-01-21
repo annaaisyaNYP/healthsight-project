@@ -11,7 +11,7 @@ namespace healthsight_project
 {
 
 
-    public partial class Contact
+    public partial class Registration
     {
 
         /// <summary>

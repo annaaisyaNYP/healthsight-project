@@ -11,7 +11,7 @@ namespace MyDBService.Entity
 {
     public class Patient
     {
-        // Initialise Variables
+        // Initialize Properties
         public String Name { get; set; }
         public String NRIC { get; set; }
         public DateTime DOB { get; set; }
@@ -28,15 +28,15 @@ namespace MyDBService.Entity
         // Define a constructor to initialize all the properties
         public Patient(string name, string nric, DateTime dob, string gen, string nat, string addr, string medcon, string email, double phoneNo)
         {
-            name = Name;
-            nric = NRIC;
-            dob = DOB;
-            gen = Gender;
-            nat = Nat;
-            addr = Addr;
-            medcon = MedCon;
-            email = Email;
-            phoneNo = PhoneNo;
+            Name = name;
+            NRIC = nric;
+            DOB = dob;
+            Gender = gen;
+            Nat = nat;
+            Addr = addr;
+            MedCon = medcon;
+            Email = email;
+            PhoneNo = phoneNo;
         }
 
         public int ComputeAge()
@@ -65,14 +65,14 @@ namespace MyDBService.Entity
             SqlConnection myConn = new SqlConnection(DBConnect);
 
             // Step 2 - Create a SqlCommand object to add record with INSERT statement
-            string sqlStmt = "INSERT INTO Patient(nric, name, dob, gen, nat, addr, medcon, email, phoneNo)" +
-                "VALUES (@paraNric, @paraName, @paraDob, @paraGen, @paraNat, @paraAddr, @paraMedcon, @paraEmail, @paraPhoneNo)";
+            string sqlStmt = "INSERT INTO Patient(name, nric, dob, gender, nationality, addr, medcon, email, phoneNo)" +
+                "VALUES (@paraName, @paraNric, @paraDob, @paraGen, @paraNat, @paraAddr, @paraMedcon, @paraEmail, @paraPhoneNo)";
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
             // Step 3 : Add each parameterised variable with value
             sqlCmd.Parameters.AddWithValue("@paraNric", NRIC);
             sqlCmd.Parameters.AddWithValue("@paraName", Name);
-            sqlCmd.Parameters.AddWithValue("@paraDob", DOB.ToShortDateString());
+            sqlCmd.Parameters.AddWithValue("@paraDob", DOB);
             sqlCmd.Parameters.AddWithValue("@paraGen", Gender);
             sqlCmd.Parameters.AddWithValue("@paraNat", Nat);
             sqlCmd.Parameters.AddWithValue("@paraAddr", Addr);
@@ -118,10 +118,10 @@ namespace MyDBService.Entity
                 DateTime dob = Convert.ToDateTime(row["dob"].ToString());
                 string gen = row["gender"].ToString();
                 string nat = row["nationality"].ToString();
-                string address = row["address"].ToString();
-                string medcon = row["medical condition"].ToString();
+                string address = row["addr"].ToString();
+                string medcon = row["medcon"].ToString();
                 string email = row["email"].ToString();
-                string pnStr = row["phone no"].ToString();
+                string pnStr = row["phoneNo"].ToString();
                 double phoneNo = Convert.ToDouble(pnStr);
 
                 obj = new Patient(nric, name, dob, gen, nat, address, medcon, email, phoneNo);
@@ -157,9 +157,9 @@ namespace MyDBService.Entity
                 DateTime dob = Convert.ToDateTime(row["dob"].ToString());
                 string gen = row["gender"].ToString();
                 string nat = row["nationality"].ToString();
-                string address = row["address"].ToString();
-                string medcon = row["medical condition"].ToString();
-                string pnStr = row["phone no"].ToString();
+                string address = row["addr"].ToString();
+                string medcon = row["medcon"].ToString();
+                string pnStr = row["phoneNo"].ToString();
                 double phoneNo = Convert.ToDouble(pnStr);
 
                 obj = new Patient(nric, name, dob, gen, nat, address, medcon, email, phoneNo);

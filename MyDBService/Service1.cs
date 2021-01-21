@@ -46,5 +46,17 @@ namespace MyDBService
             Patient patient = new Patient(name, nric, dob, gen, nat, addr, medcon, email, phoneNo);
             return patient.Insert();
         }
+
+        public User GetUserByEmail(string email)
+        {
+            User user = new User();
+            return user.SelectByEmail(email);
+        }
+
+        public int CreateUser(string email, string finalHash, string salt, byte[] key, byte[] iv)
+        {
+            User user = new User(email, finalHash, salt, key, iv);
+            return user.Insert();
+        }
     }
 }

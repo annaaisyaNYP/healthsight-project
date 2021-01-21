@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "healthsight project", "heal
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyDBService", "MyDBService\MyDBService.csproj", "{AC1D213D-0D5A-4C06-B0E8-441662F25F01}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{852498A9-00FD-4DAA-942F-CCF61E5C212B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "text files", "text files", "{852498A9-00FD-4DAA-942F-CCF61E5C212B}"
 	ProjectSection(SolutionItems) = preProject
 		Detail Log.txt = Detail Log.txt
 		README.txt = README.txt

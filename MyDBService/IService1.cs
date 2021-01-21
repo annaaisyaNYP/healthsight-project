@@ -28,6 +28,11 @@ namespace MyDBService
         [OperationContract]
         int CreatePatient(string name, string nric, DateTime dob, string gen, string nat, string addr, string medcon, string email, double phoneNo);
 
+        [OperationContract]
+        User GetUserByEmail(string email);
+
+        [OperationContract]
+        int CreateUser(string email, string finalHash, string salt, byte[] key, byte[] iv);
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

@@ -1,3 +1,15 @@
 .LOG
 
 Current Problem: Methods in Patient.cs has an error when invoking -ack
+11:48 21/1/2021
+
+Am trying to implement security features
+12:41 AM 21/1/2021
+
+Error creating Patient is fixed however is replaced by another ;-;
+9:45 AM 21/1/2021
+
+Things are working. Yay! To do:
+- Validation checks for NRIC, DOB and Email(Make sure .com and etc. is added).
+- Clear Errors When Page is Loaded
+10:41 AM 21/1/2021
