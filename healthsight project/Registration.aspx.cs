@@ -17,7 +17,10 @@ namespace healthsight_project
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lbMsg.Text = "";
+            lbEmailER.Text = "";
+            lbPassER.Text = "";
+            lbConPassER.Text = "";
         }
 
         private bool ValidateInput()
@@ -71,6 +74,22 @@ namespace healthsight_project
                 lbMsg.Text += "Password is required! </br>";
             }
 
+            // DOB VALIDATION
+            //  - Make sure date is not from the future
+            //  - Make sure user is at least 18 years old 
+            int age = ValidateDOB();
+            if (age < 16 && age >= 0)
+            {
+                lbMsg.Text += "You are too young to create an account. Minimum Age: 16 years old";
+            }
+            if (age == -1)
+            {
+                lbMsg.Text += "Invalid Date of Birth </br>";
+            }
+
+            // NRIC VALIDATION
+            // to be done
+
             // NRIC ERROR MSG 
             MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
             Patient patient = client.GetPatientByNRIC(tbNRIC.Text);
@@ -97,7 +116,6 @@ namespace healthsight_project
                 lbConPassER.Text += "Passwords do not match";
             }
 
-
             if (String.IsNullOrEmpty(lbMsg.Text))
             {
                 return true;
@@ -106,6 +124,30 @@ namespace healthsight_project
             {
                 return false;
             }
+        }
+
+        // Am unsure if to make a seperate method or include code in the above method
+        public int ValidateDOB()
+        {
+            DateTime dob = Convert.ToDateTime(tbDOB.Text);
+            DateTime now = DateTime.Today;
+            if (now <= dob)
+            {
+                return -1;
+            }
+            int age = DateTime.Today.Year - dob.Year;
+            if (now.Month < dob.Month)
+            {
+                age--;
+            }
+            else
+            {
+                if (now.Month == dob.Month && now.Day < dob.Day)
+                {
+                    age--;
+                }
+            }
+            return age;
         }
 
         protected void btnSignUp_OnClick(object sender, EventArgs e)
@@ -149,7 +191,7 @@ namespace healthsight_project
 
                 if (tbAllergies.Text == "")
                 {
-                    string MedCon = "Null";
+                    string MedCon = "NULL";
                     int result = client.CreatePatient(tbName.Text, tbNRIC.Text, dob, ddGender.SelectedValue, ddNationality.SelectedValue, tbAddr.Text, MedCon, tbEmail.Text, phoneNo);
 
                     if (result == 1)

@@ -68,7 +68,7 @@
         <tr>
             <td style="height: 20px; width: 210px;">&nbsp;</td>
             <td>
-                <asp:Label ID="lbEmailER" runat="server" ForeColor="Red" Visible="False"></asp:Label>
+                <asp:Label ID="lbEmailER" runat="server" ForeColor="Red"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -86,7 +86,7 @@
         <tr>
             <td class="modal-sm" style="width: 210px">&nbsp;</td>
             <td>
-                <asp:Label ID="lbPassER" runat="server" ForeColor="Red" Visible="False"></asp:Label>
+                <asp:Label ID="lbPassER" runat="server" ForeColor="Red"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -99,7 +99,7 @@
         <tr>
             <td class="modal-sm" style="width: 210px">&nbsp;</td>
             <td>
-                <asp:Label ID="lbConPassER" runat="server" ForeColor="Red" Visible="False"></asp:Label>
+                <asp:Label ID="lbConPassER" runat="server" ForeColor="Red"></asp:Label>
             </td>
         </tr>
         <tr>
