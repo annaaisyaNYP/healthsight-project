@@ -3,6 +3,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web.UI;
 using healthsight_project.MyDBServiceReference;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace healthsight_project
 {
@@ -88,7 +90,10 @@ namespace healthsight_project
             }
 
             // NRIC VALIDATION
-            // to be done
+            if (!IsNRICValid(tbNRIC.Text))
+            {
+                lbMsg.Text += "NRIC is not valid! </br>";
+            }
 
             // NRIC ERROR MSG 
             MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
@@ -96,6 +101,12 @@ namespace healthsight_project
             if (patient != null)
             {
                 lbMsg.Text += "NRIC already exists! </br>";
+            }
+
+            // EMAIL VALIDATION
+            if (!IsEmailValid(tbEmail.Text))
+            {
+                lbEmailER.Text += "Email Formatting Error </br>";
             }
 
             // EMAIL ERROR MSG
@@ -108,7 +119,7 @@ namespace healthsight_project
             // PASSWORD VALIDATION
             // if (tbPass.text [does not contain either 1 lowercase, 1 uppercase, 1 number and 12 minimum characters])
             //{
-            //lbPassER.Text += "Password does not follow the requiements";
+            //lbPassER.Text += "Password does not follow the requirements";
             //}
 
             if (tbPass.Text != tbConfrimPass.Text)
@@ -126,7 +137,6 @@ namespace healthsight_project
             }
         }
 
-        // Am unsure if to make a seperate method or include code in the above method
         public int ValidateDOB()
         {
             DateTime dob = Convert.ToDateTime(tbDOB.Text);
@@ -148,6 +158,107 @@ namespace healthsight_project
                 }
             }
             return age;
+        }
+
+        // Taken from https://chrismemo.wordpress.com/2015/03/03/how-to-validate-nric-or-fin-using-c/
+        private static readonly int[] Multiples = { 2, 7, 6, 5, 4, 3, 2 };
+        public static bool IsNRICValid(string nric)
+        {
+            if (string.IsNullOrEmpty(nric))
+            {
+                return false;
+            }
+
+            //	check length must be 9 digits
+            if (nric.Length != 9)
+            {
+                return false;
+            }
+
+            int total = 0
+                , count = 0
+                , numericNric;
+            char first = nric[0]
+                , last = nric[nric.Length - 1];
+
+            // first chat alwatas T or S
+            if (first != 'S' && first != 'T')
+            {
+                return false;
+            }
+
+            // ensure first chars is char and last
+
+            if (!int.TryParse(nric.Substring(1, nric.Length - 2), out numericNric))
+            {
+                return false;
+            }
+
+            while (numericNric != 0)
+            {
+                total += numericNric % 10 * Multiples[Multiples.Length - (1 + count++)];
+
+                numericNric /= 10;
+            }
+
+            char[] outputs;
+            // first S, pickup different array (read specification)
+            if (first == 'S')
+            {
+                outputs = new char[] { 'J', 'Z', 'I', 'H', 'G', 'F', 'E', 'D', 'C', 'B', 'A' };
+            }
+            // T pickup different arrary (read specification)
+            else
+            {
+                outputs = new char[] { 'G', 'F', 'E', 'D', 'C', 'B', 'A', 'J', 'Z', 'I', 'H' };
+            }
+
+            return last == outputs[total % 11];
+
+        }
+
+        public static bool IsEmailValid(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            try
+            {
+                // Normalize the domain
+                email = Regex.Replace(email, @"(@)(.+)$", DomainMapper,
+                                      RegexOptions.None, TimeSpan.FromMilliseconds(200));
+
+                // Examines the domain part of the email and normalizes it.
+                string DomainMapper(Match match)
+                {
+                    // Use IdnMapping class to convert Unicode domain names.
+                    var idn = new IdnMapping();
+
+                    // Pull out and process domain name (throws ArgumentException on invalid)
+                    string domainName = idn.GetAscii(match.Groups[2].Value);
+
+                    return match.Groups[1].Value + domainName;
+                }
+            }
+            catch (RegexMatchTimeoutException e)
+            {
+                return false;
+            }
+            catch (ArgumentException e)
+            {
+                return false;
+            }
+
+            try
+            {
+                return Regex.IsMatch(email,
+                    @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
+                    RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
+            }
+            catch (RegexMatchTimeoutException)
+            {
+                return false;
+            }
         }
 
         protected void btnSignUp_OnClick(object sender, EventArgs e)
