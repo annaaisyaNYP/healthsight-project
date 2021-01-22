@@ -28,17 +28,9 @@ namespace healthsight_project
         private bool ValidateInput()
         {
             // INPUT REQURIED ERROR MSGS
-            bool result;
             if (tbName.Text == "")
             {
                 lbMsg.Text += "Full Name is required! </br>";
-            }
-
-            DateTime dob;
-            result = DateTime.TryParse(tbDOB.Text, out dob);
-            if (!result)
-            {
-                lbMsg.Text += "Date of Birth is invalid!" + "<br/>";
             }
             
             if (ddGender.SelectedIndex == 0)
@@ -78,17 +70,12 @@ namespace healthsight_project
 
             // DOB VALIDATION
             //  - Make sure date is not from the future
-            //  - Make sure user is at least 18 years old 
-            int age = ValidateDOB();
-            if (age < 16 && age >= 0)
+            //  - Make sure user is at least 18 years old             
+            if (!ValidateDOB(tbDOB.Text))
             {
-                lbMsg.Text += "You are too young to create an account. Minimum Age: 16 years old";
+                lbMsg.Text += "Date of Birth is invalid! Minimum age requirement: 16 years old." + "<br/>";
             }
-            if (age == -1)
-            {
-                lbMsg.Text += "Invalid Date of Birth </br>";
-            }
-
+            
             // NRIC VALIDATION
             if (!IsNRICValid(tbNRIC.Text))
             {
@@ -106,7 +93,7 @@ namespace healthsight_project
             // EMAIL VALIDATION
             if (!IsEmailValid(tbEmail.Text))
             {
-                lbEmailER.Text += "Email Formatting Error </br>";
+                lbEmailER.Text += "Email is invalid! Check formatting. </br>";
             }
 
             // EMAIL ERROR MSG
@@ -137,28 +124,55 @@ namespace healthsight_project
             }
         }
 
-        public int ValidateDOB()
+        public bool ValidateDOB(string dob)
         {
-            DateTime dob = Convert.ToDateTime(tbDOB.Text);
-            DateTime now = DateTime.Today;
-            if (now <= dob)
+            bool result;
+            result = DateTime.TryParse(dob, out _);
+            if (!result) 
             {
-                return -1;
+                return false;
             }
-            int age = DateTime.Today.Year - dob.Year;
-            if (now.Month < dob.Month)
+
+            // Check if date is invalid AKA from the future
+            DateTime DOB = Convert.ToDateTime(dob);
+            DateTime now = DateTime.Today;
+            if (now <= DOB)
+            {
+                return false;
+            }
+
+            // Check age
+            int age = ComputeAge(dob);
+            if (age < 16 || age >= 120)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        
+        public int ComputeAge(string dob)
+        {
+            DateTime DOB = Convert.ToDateTime(dob);
+            // Compute age
+            DateTime now = DateTime.Today;
+            int age = DateTime.Today.Year - DOB.Year;
+            if (now.Month < DOB.Month)
             {
                 age--;
             }
             else
             {
-                if (now.Month == dob.Month && now.Day < dob.Day)
+                if (now.Month == DOB.Month && now.Day < DOB.Day)
                 {
                     age--;
                 }
             }
             return age;
         }
+
 
         // Taken from https://chrismemo.wordpress.com/2015/03/03/how-to-validate-nric-or-fin-using-c/
         private static readonly int[] Multiples = { 2, 7, 6, 5, 4, 3, 2 };
@@ -217,6 +231,7 @@ namespace healthsight_project
 
         }
 
+        // Taken from https://docs.microsoft.com/en-us/dotnet/standard/base-types/how-to-verify-that-strings-are-in-valid-email-format
         public static bool IsEmailValid(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
