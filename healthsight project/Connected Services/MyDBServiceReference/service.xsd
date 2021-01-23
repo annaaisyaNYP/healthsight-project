@@ -30,6 +30,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllPatients">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPatientsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MyDBService.Entity" minOccurs="0" name="GetAllPatientsResult" nillable="true" type="q3:ArrayOfPatient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetPatientByNRIC">
     <xs:complexType>
       <xs:sequence>
@@ -40,7 +52,7 @@
   <xs:element name="GetPatientByNRICResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MyDBService.Entity" minOccurs="0" name="GetPatientByNRICResult" nillable="true" type="q3:Patient" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MyDBService.Entity" minOccurs="0" name="GetPatientByNRICResult" nillable="true" type="q4:Patient" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -54,7 +66,7 @@
   <xs:element name="GetPatientByEmailResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MyDBService.Entity" minOccurs="0" name="GetPatientByEmailResult" nillable="true" type="q4:Patient" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MyDBService.Entity" minOccurs="0" name="GetPatientByEmailResult" nillable="true" type="q5:Patient" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -90,7 +102,7 @@
   <xs:element name="GetUserByEmailResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MyDBService.Entity" minOccurs="0" name="GetUserByEmailResult" nillable="true" type="q5:User" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MyDBService.Entity" minOccurs="0" name="GetUserByEmailResult" nillable="true" type="q6:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

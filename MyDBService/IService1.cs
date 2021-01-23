@@ -20,6 +20,9 @@ namespace MyDBService
 
         // TODO: Add your service operations here
         [OperationContract]
+        List<Patient> GetAllPatients();
+
+        [OperationContract]
         Patient GetPatientByNRIC(string nric);
 
         [OperationContract]

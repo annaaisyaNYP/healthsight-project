@@ -372,6 +372,12 @@ namespace healthsight_project.MyDBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
         System.Threading.Tasks.Task<healthsight_project.MyDBServiceReference.CompositeType> GetDataUsingDataContractAsync(healthsight_project.MyDBServiceReference.CompositeType composite);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllPatients", ReplyAction="http://tempuri.org/IService1/GetAllPatientsResponse")]
+        healthsight_project.MyDBServiceReference.Patient[] GetAllPatients();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllPatients", ReplyAction="http://tempuri.org/IService1/GetAllPatientsResponse")]
+        System.Threading.Tasks.Task<healthsight_project.MyDBServiceReference.Patient[]> GetAllPatientsAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPatientByNRIC", ReplyAction="http://tempuri.org/IService1/GetPatientByNRICResponse")]
         healthsight_project.MyDBServiceReference.Patient GetPatientByNRIC(string nric);
         
@@ -444,6 +450,14 @@ namespace healthsight_project.MyDBServiceReference {
         
         public System.Threading.Tasks.Task<healthsight_project.MyDBServiceReference.CompositeType> GetDataUsingDataContractAsync(healthsight_project.MyDBServiceReference.CompositeType composite) {
             return base.Channel.GetDataUsingDataContractAsync(composite);
+        }
+        
+        public healthsight_project.MyDBServiceReference.Patient[] GetAllPatients() {
+            return base.Channel.GetAllPatients();
+        }
+        
+        public System.Threading.Tasks.Task<healthsight_project.MyDBServiceReference.Patient[]> GetAllPatientsAsync() {
+            return base.Channel.GetAllPatientsAsync();
         }
         
         public healthsight_project.MyDBServiceReference.Patient GetPatientByNRIC(string nric) {

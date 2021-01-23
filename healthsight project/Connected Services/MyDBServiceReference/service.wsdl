@@ -20,6 +20,12 @@
   <wsdl:message name="IService1_GetDataUsingDataContract_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetAllPatients_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatients" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllPatients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientsResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetPatientByNRIC_InputMessage">
     <wsdl:part name="parameters" element="tns:GetPatientByNRIC" />
   </wsdl:message>
@@ -59,6 +65,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract" message="tns:IService1_GetDataUsingDataContract_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContractResponse" message="tns:IService1_GetDataUsingDataContract_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetAllPatients">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllPatients" message="tns:IService1_GetAllPatients_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllPatientsResponse" message="tns:IService1_GetAllPatients_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetPatientByNRIC">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPatientByNRIC" message="tns:IService1_GetPatientByNRIC_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPatientByNRICResponse" message="tns:IService1_GetPatientByNRIC_OutputMessage" />
@@ -93,6 +103,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetDataUsingDataContract">
       <soap:operation soapAction="http://tempuri.org/IService1/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatients">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAllPatients" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

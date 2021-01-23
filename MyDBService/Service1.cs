@@ -29,6 +29,12 @@ namespace MyDBService
             return composite;
         }
 
+        public List<Patient> GetAllPatients()
+        {
+            Patient pat = new Patient();
+            return pat.SelectAll();
+        }
+
         public Patient GetPatientByNRIC(string nric)
         {
             Patient patient = new Patient();
