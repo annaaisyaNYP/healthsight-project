@@ -15,13 +15,13 @@ namespace MyDBService.Entity
         public string Email { get; set; }
         public static string FinalHash { get; set; }
         public static string Salt { get; set; }
-        public byte[] Key { get; set; }
-        public byte[] IV { get; set; }
+        public string Key { get; set; }
+        public string IV { get; set; }
 
         public User() { }
 
         // Define a constructor to initialize all the properties
-        public User(string email, string finalhash, string salt, byte[] key, byte[] iv)
+        public User(string email, string finalhash, string salt, string key, string iv)
         {
             Email = email;
             FinalHash = finalhash;
@@ -46,8 +46,8 @@ namespace MyDBService.Entity
             sqlCmd.Parameters.AddWithValue("@paraEmail", Email);
             sqlCmd.Parameters.AddWithValue("@paraFinalHash", FinalHash);
             sqlCmd.Parameters.AddWithValue("@paraSalt", Salt);
-            sqlCmd.Parameters.AddWithValue("@paraKey", Convert.ToBase64String(Key));
-            sqlCmd.Parameters.AddWithValue("@paraIV", Convert.ToBase64String(IV));
+            sqlCmd.Parameters.AddWithValue("@paraKey", Convert.FromBase64String(Key));
+            sqlCmd.Parameters.AddWithValue("@paraIV", Convert.FromBase64String(IV));
 
             // Step 4 Open connection the execute NonQuery of sql command   
             myConn.Open();
@@ -82,12 +82,12 @@ namespace MyDBService.Entity
             if (rec_cnt == 1)
             {
                 DataRow row = ds.Tables[0].Rows[0];
-                string finalhash = row["finalhash"].ToString();
-                string salt = row["salt"].ToString();
-                //byte[] key = (row["key"]);
-                //byte[] iv = row["iv"];
- 
-                //obj = User(email, FinalHash, Salt, Key, IV);
+                string finalhash = row["passHash"].ToString();
+                string salt = row["passSalt"].ToString();
+                string key = row["key"].ToString();
+                string iv = row["iv"].ToString();
+
+                obj = new User(email, finalhash, salt, key, iv);
             }
             return obj;
         }

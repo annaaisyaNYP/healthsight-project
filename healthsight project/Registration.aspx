@@ -94,7 +94,8 @@
             <td style="height: 30px">
                 <asp:TextBox ID="tbPass" runat="server" TextMode="Password"></asp:TextBox>
                 <br />
-                Requirements: 1 lowercase, 1 uppercase, 1 number and 12 minimum characters</td>
+                Requirements: 
+                12 charaters, 1 lowercase, 1 uppercase, 1 number , and 1 special character ( !, *, @, #, $, %, ^, &amp;, +, = ) </td>
         </tr>
         <tr>
             <td class="modal-sm" style="width: 210px">&nbsp;</td>

@@ -347,6 +347,6 @@ namespace healthsight_project.MyDBServiceReference {
         
         public System.Threading.Tasks.Task<int> CreatePatientAsync(string name, string nric, System.DateTime dob, string gen, string nat, string addr, string medcon, string email, double phoneNo) {
             return base.Channel.CreatePatientAsync(name, nric, dob, gen, nat, addr, medcon, email, phoneNo);
-        }
+        }       
     }
 }

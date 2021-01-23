@@ -53,7 +53,7 @@ namespace MyDBService
             return user.SelectByEmail(email);
         }
 
-        public int CreateUser(string email, string finalHash, string salt, byte[] key, byte[] iv)
+        public int CreateUser(string email, string finalHash, string salt, string key, string iv)
         {
             User user = new User(email, finalHash, salt, key, iv);
             return user.Insert();

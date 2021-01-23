@@ -70,7 +70,7 @@ namespace healthsight_project
 
             // DOB VALIDATION
             //  - Make sure date is not from the future
-            //  - Make sure user is at least 18 years old             
+            //  - Make sure user is at least 16 years old             
             if (!ValidateDOB(tbDOB.Text))
             {
                 lbMsg.Text += "Date of Birth is invalid! Minimum age requirement: 16 years old." + "<br/>";
@@ -104,16 +104,17 @@ namespace healthsight_project
             }
 
             // PASSWORD VALIDATION
-            // if (tbPass.text [does not contain either 1 lowercase, 1 uppercase, 1 number and 12 minimum characters])
-            //{
-            //lbPassER.Text += "Password does not follow the requirements";
-            //}
+            if (!IsPasswordValid(tbPass.Text))
+            {
+                lbPassER.Text += "Password does not follow the requirements";
+            }
 
             if (tbPass.Text != tbConfrimPass.Text)
             {
                 lbConPassER.Text += "Passwords do not match";
             }
 
+            // All Clear:
             if (String.IsNullOrEmpty(lbMsg.Text))
             {
                 return true;
@@ -255,11 +256,11 @@ namespace healthsight_project
                     return match.Groups[1].Value + domainName;
                 }
             }
-            catch (RegexMatchTimeoutException e)
+            catch (RegexMatchTimeoutException)
             {
                 return false;
             }
-            catch (ArgumentException e)
+            catch (ArgumentException)
             {
                 return false;
             }
@@ -269,6 +270,22 @@ namespace healthsight_project
                 return Regex.IsMatch(email,
                     @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
                     RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
+            }
+            catch (RegexMatchTimeoutException)
+            {
+                return false;
+            }
+        }
+
+        public bool IsPasswordValid(string pwd)
+        {
+            if (string.IsNullOrWhiteSpace(pwd))
+                return false;
+
+            try
+            {
+                return Regex.IsMatch(pwd, @"^.*(?=.{12,})(?=.+\d)(?=.+[a-z])(?=.+[A-Z])(?=.+[!*@#$%^&+=]).*",
+                    RegexOptions.None, TimeSpan.FromMilliseconds(250));
             }
             catch (RegexMatchTimeoutException)
             {
@@ -306,10 +323,13 @@ namespace healthsight_project
                 cipher.GenerateKey();
                 Key = cipher.Key;
                 IV = cipher.IV;
+                // Converting to string for easy storage into database
+                string Key64 = Convert.ToBase64String(Key);
+                string IV64 = Convert.ToBase64String(IV);
 
                 //Create User
                 MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
-                //int resultA = client.CreateUser(tbEmail.Text,finalHash,salt,IV,Key)
+                //int resultA = client.CreateUser(tbEmail.Text, finalHash, salt, Key64, IV64);
 
                 //Create Patient
                 DateTime dob = Convert.ToDateTime(tbDOB.Text);

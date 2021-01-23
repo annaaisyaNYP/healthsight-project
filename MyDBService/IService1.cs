@@ -32,7 +32,7 @@ namespace MyDBService
         User GetUserByEmail(string email);
 
         [OperationContract]
-        int CreateUser(string email, string finalHash, string salt, byte[] key, byte[] iv);
+        int CreateUser(string email, string finalHash, string salt, string key, string iv);
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
