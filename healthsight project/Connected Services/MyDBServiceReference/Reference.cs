@@ -260,10 +260,16 @@ namespace healthsight_project.MyDBServiceReference {
         private string EmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FinalHashField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IVField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string KeyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SaltField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -284,6 +290,19 @@ namespace healthsight_project.MyDBServiceReference {
                 if ((object.ReferenceEquals(this.EmailField, value) != true)) {
                     this.EmailField = value;
                     this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FinalHash {
+            get {
+                return this.FinalHashField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FinalHashField, value) != true)) {
+                    this.FinalHashField = value;
+                    this.RaisePropertyChanged("FinalHash");
                 }
             }
         }
@@ -310,6 +329,19 @@ namespace healthsight_project.MyDBServiceReference {
                 if ((object.ReferenceEquals(this.KeyField, value) != true)) {
                     this.KeyField = value;
                     this.RaisePropertyChanged("Key");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Salt {
+            get {
+                return this.SaltField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SaltField, value) != true)) {
+                    this.SaltField = value;
+                    this.RaisePropertyChanged("Salt");
                 }
             }
         }

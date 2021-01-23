@@ -13,8 +13,8 @@ namespace MyDBService.Entity
     {
         // Initialize Properties
         public string Email { get; set; }
-        public static string FinalHash { get; set; }
-        public static string Salt { get; set; }
+        public string FinalHash { get; set; }
+        public string Salt { get; set; }
         public string Key { get; set; }
         public string IV { get; set; }
 
@@ -82,8 +82,8 @@ namespace MyDBService.Entity
             if (rec_cnt == 1)
             {
                 DataRow row = ds.Tables[0].Rows[0];
-                string finalhash = row["passHash"].ToString();
-                string salt = row["passSalt"].ToString();
+                string finalhash = row["PassHash"].ToString();
+                string salt = row["PassSalt"].ToString();
                 string key = row["key"].ToString();
                 string iv = row["iv"].ToString();
 

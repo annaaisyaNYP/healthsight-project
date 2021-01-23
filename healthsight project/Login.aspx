@@ -24,7 +24,7 @@
             <tr>
                 <td class="modal-sm" style="padding: 10px; font-size: 21px; ">&nbsp;</td>
                 <td style="padding: 10px; font-size: 21px;">
-                    <asp:Button ID="BtnLogin" runat="server" Text="Login" />
+                    <asp:Button ID="BtnLogin" runat="server" Text="Login" OnClick="BtnLogin_Click" />
                 </td>
             </tr>
         </table>

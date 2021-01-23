@@ -17,8 +17,10 @@
   <xs:complexType name="User">
     <xs:sequence>
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FinalHash" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IV" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Salt" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="User" nillable="true" type="tns:User" />

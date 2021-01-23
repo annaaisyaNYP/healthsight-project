@@ -109,6 +109,7 @@
   <ItemGroup>
     <None Include="Connected Services\MyDBServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\MyDBServiceReference\configuration.svcinfo" />
+    <Content Include="AdminBoard.aspx" />
     <Content Include="Connected Services\MyDBServiceReference\healthsight_project.MyDBServiceReference.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -196,6 +197,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminBoard.aspx.cs">
+      <DependentUpon>AdminBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminBoard.aspx.designer.cs">
+      <DependentUpon>AdminBoard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\MyDBServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

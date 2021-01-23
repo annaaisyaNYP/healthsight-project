@@ -63,7 +63,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>annaaisya &copy;2021 <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>annaaisya &copy;<%: DateTime.Now.Year %> - My ASP.NET Application</p>
             </footer>
         </div>
 
