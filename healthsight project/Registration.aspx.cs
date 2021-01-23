@@ -329,7 +329,7 @@ namespace healthsight_project
 
                 //Create User
                 MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
-                //int resultA = client.CreateUser(tbEmail.Text, finalHash, salt, Key64, IV64);
+                int resultA = client.CreateUser(tbEmail.Text, finalHash, salt, Key64, IV64);
 
                 //Create Patient
                 DateTime dob = Convert.ToDateTime(tbDOB.Text);

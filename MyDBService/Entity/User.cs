@@ -38,14 +38,14 @@ namespace MyDBService.Entity
             SqlConnection myConn = new SqlConnection(DBConnect);
 
             // Step 2 - Create a SqlCommand object to add record with INSERT statement
-            string sqlStmt = "INSERT INTO User(email,finalhash,salt,key,iv)" +
-                "VALUES (@paraEmail,@paraFinalHash,@paraSalt,@paraKey,@paraIV)";
+            string sqlStmt = "INSERT INTO [User](email,passhash,passsalt,[key],iv)" +
+                "VALUES (@paraEmail,@paraPassHash,@paraPassSalt,@paraKey,@paraIV)";
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
             // Step 3 : Add each parameterised variable with value
             sqlCmd.Parameters.AddWithValue("@paraEmail", Email);
-            sqlCmd.Parameters.AddWithValue("@paraFinalHash", FinalHash);
-            sqlCmd.Parameters.AddWithValue("@paraSalt", Salt);
+            sqlCmd.Parameters.AddWithValue("@paraPassHash", FinalHash);
+            sqlCmd.Parameters.AddWithValue("@paraPassSalt", Salt);
             sqlCmd.Parameters.AddWithValue("@paraKey", Convert.FromBase64String(Key));
             sqlCmd.Parameters.AddWithValue("@paraIV", Convert.FromBase64String(IV));
 
@@ -66,7 +66,7 @@ namespace MyDBService.Entity
             SqlConnection myConn = new SqlConnection(DBConnect);
 
             //Step 2 -  Create a DataAdapter to retrieve data from the database table
-            string sqlstmt = "Select * from Patient where email = @paraEmail";
+            string sqlstmt = "Select * from [User] where email = @paraEmail";
             SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
             da.SelectCommand.Parameters.AddWithValue("@paraEmail", email);
 
