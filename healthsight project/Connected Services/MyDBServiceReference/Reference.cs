@@ -247,6 +247,83 @@ namespace healthsight_project.MyDBServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/MyDBService.Entity")]
+    [System.SerializableAttribute()]
+    public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IVField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string KeyField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IV {
+            get {
+                return this.IVField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IVField, value) != true)) {
+                    this.IVField = value;
+                    this.RaisePropertyChanged("IV");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Key {
+            get {
+                return this.KeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.KeyField, value) != true)) {
+                    this.KeyField = value;
+                    this.RaisePropertyChanged("Key");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MyDBServiceReference.IService1")]
     public interface IService1 {
@@ -280,6 +357,18 @@ namespace healthsight_project.MyDBServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreatePatient", ReplyAction="http://tempuri.org/IService1/CreatePatientResponse")]
         System.Threading.Tasks.Task<int> CreatePatientAsync(string name, string nric, System.DateTime dob, string gen, string nat, string addr, string medcon, string email, double phoneNo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserByEmail", ReplyAction="http://tempuri.org/IService1/GetUserByEmailResponse")]
+        healthsight_project.MyDBServiceReference.User GetUserByEmail(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserByEmail", ReplyAction="http://tempuri.org/IService1/GetUserByEmailResponse")]
+        System.Threading.Tasks.Task<healthsight_project.MyDBServiceReference.User> GetUserByEmailAsync(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateUser", ReplyAction="http://tempuri.org/IService1/CreateUserResponse")]
+        int CreateUser(string email, string finalHash, string salt, string key, string iv);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateUser", ReplyAction="http://tempuri.org/IService1/CreateUserResponse")]
+        System.Threading.Tasks.Task<int> CreateUserAsync(string email, string finalHash, string salt, string key, string iv);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -347,6 +436,22 @@ namespace healthsight_project.MyDBServiceReference {
         
         public System.Threading.Tasks.Task<int> CreatePatientAsync(string name, string nric, System.DateTime dob, string gen, string nat, string addr, string medcon, string email, double phoneNo) {
             return base.Channel.CreatePatientAsync(name, nric, dob, gen, nat, addr, medcon, email, phoneNo);
-        }       
+        }
+        
+        public healthsight_project.MyDBServiceReference.User GetUserByEmail(string email) {
+            return base.Channel.GetUserByEmail(email);
+        }
+        
+        public System.Threading.Tasks.Task<healthsight_project.MyDBServiceReference.User> GetUserByEmailAsync(string email) {
+            return base.Channel.GetUserByEmailAsync(email);
+        }
+        
+        public int CreateUser(string email, string finalHash, string salt, string key, string iv) {
+            return base.Channel.CreateUser(email, finalHash, salt, key, iv);
+        }
+        
+        public System.Threading.Tasks.Task<int> CreateUserAsync(string email, string finalHash, string salt, string key, string iv) {
+            return base.Channel.CreateUserAsync(email, finalHash, salt, key, iv);
+        }
     }
 }

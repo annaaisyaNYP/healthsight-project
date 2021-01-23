@@ -115,6 +115,9 @@
     <Content Include="Connected Services\MyDBServiceReference\healthsight_project.MyDBServiceReference.Patient.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\MyDBServiceReference\healthsight_project.MyDBServiceReference.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\MyDBServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

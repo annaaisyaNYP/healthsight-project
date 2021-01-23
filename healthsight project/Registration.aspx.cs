@@ -144,7 +144,7 @@ namespace healthsight_project
 
             // Check age
             int age = ComputeAge(dob);
-            if (age < 16 || age >= 120)
+            if (age < 16 || age >= 100)
             {
                 return false;
             }
@@ -277,6 +277,7 @@ namespace healthsight_project
             }
         }
 
+        // Created with reference from the above method
         public bool IsPasswordValid(string pwd)
         {
             if (string.IsNullOrWhiteSpace(pwd))
