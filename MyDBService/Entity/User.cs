@@ -91,5 +91,54 @@ namespace MyDBService.Entity
             }
             return obj;
         }
+
+        // Update Methods
+        public int UpdateEmail(string CurrEmail, string NewEmail)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["EDPDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "UPDATE Patient SET email = @paraNewEmail where email = @paraCurrEmail";
+
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            //sqlCmd.Parameters.AddWithValue("@para",);
+            sqlCmd.Parameters.AddWithValue("@paraNewEmail", NewEmail);
+            sqlCmd.Parameters.AddWithValue("@paraCurrEmail", CurrEmail);
+
+            myConn.Open();
+            int result = sqlCmd.ExecuteNonQuery();
+
+            myConn.Close();
+
+            return result;
+        }
+
+        // Delete Method
+        public int DeleteUserByEmail(string email)
+        {
+            if (SelectByEmail(email) != null)
+            {
+                string DBConnect = ConfigurationManager.ConnectionStrings["EDPDB"].ConnectionString;
+                SqlConnection myConn = new SqlConnection(DBConnect);
+
+                string sqlStmt = "DELETE FROM User WHERE email = @paraEmail;";
+
+                SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+                sqlCmd.Parameters.AddWithValue("@paraEmail", email);
+
+                myConn.Open();
+                int result = sqlCmd.ExecuteNonQuery();
+
+                myConn.Close();
+
+                return result;
+            }
+            else
+            {
+                return -1;
+            }
+        }
     }
 }
