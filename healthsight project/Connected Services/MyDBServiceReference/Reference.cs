@@ -396,6 +396,12 @@ namespace healthsight_project.MyDBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreatePatient", ReplyAction="http://tempuri.org/IService1/CreatePatientResponse")]
         System.Threading.Tasks.Task<int> CreatePatientAsync(string name, string nric, System.DateTime dob, string gen, string nat, string addr, string medcon, string email, double phoneNo);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeletePatientByEmail", ReplyAction="http://tempuri.org/IService1/DeletePatientByEmailResponse")]
+        int DeletePatientByEmail(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeletePatientByEmail", ReplyAction="http://tempuri.org/IService1/DeletePatientByEmailResponse")]
+        System.Threading.Tasks.Task<int> DeletePatientByEmailAsync(string email);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserByEmail", ReplyAction="http://tempuri.org/IService1/GetUserByEmailResponse")]
         healthsight_project.MyDBServiceReference.User GetUserByEmail(string email);
         
@@ -407,6 +413,12 @@ namespace healthsight_project.MyDBServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateUser", ReplyAction="http://tempuri.org/IService1/CreateUserResponse")]
         System.Threading.Tasks.Task<int> CreateUserAsync(string email, string finalHash, string salt, string key, string iv);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteUserByEmail", ReplyAction="http://tempuri.org/IService1/DeleteUserByEmailResponse")]
+        int DeleteUserByEmail(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteUserByEmail", ReplyAction="http://tempuri.org/IService1/DeleteUserByEmailResponse")]
+        System.Threading.Tasks.Task<int> DeleteUserByEmailAsync(string email);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -484,6 +496,14 @@ namespace healthsight_project.MyDBServiceReference {
             return base.Channel.CreatePatientAsync(name, nric, dob, gen, nat, addr, medcon, email, phoneNo);
         }
         
+        public int DeletePatientByEmail(string email) {
+            return base.Channel.DeletePatientByEmail(email);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeletePatientByEmailAsync(string email) {
+            return base.Channel.DeletePatientByEmailAsync(email);
+        }
+        
         public healthsight_project.MyDBServiceReference.User GetUserByEmail(string email) {
             return base.Channel.GetUserByEmail(email);
         }
@@ -498,6 +518,14 @@ namespace healthsight_project.MyDBServiceReference {
         
         public System.Threading.Tasks.Task<int> CreateUserAsync(string email, string finalHash, string salt, string key, string iv) {
             return base.Channel.CreateUserAsync(email, finalHash, salt, key, iv);
+        }
+        
+        public int DeleteUserByEmail(string email) {
+            return base.Channel.DeleteUserByEmail(email);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteUserByEmailAsync(string email) {
+            return base.Channel.DeleteUserByEmailAsync(email);
         }
     }
 }

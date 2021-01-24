@@ -330,54 +330,42 @@ namespace healthsight_project
 
                 //Create User
                 MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
-                int resultA = client.CreateUser(tbEmail.Text, finalHash, salt, Key64, IV64);
+                int resultU = client.CreateUser(tbEmail.Text, finalHash, salt, Key64, IV64);
 
-                //Create Patient
+                //Create User & Patient
                 DateTime dob = Convert.ToDateTime(tbDOB.Text);
                 double phoneNo = Convert.ToDouble(tbPhoneNo.Text);
-
-                if (tbAllergies.Text == "")
+                string encryptNRIC = Convert.ToBase64String(encryptData(tbNRIC.Text));
+                                                
+                int result = client.CreatePatient(tbName.Text, encryptNRIC, dob, ddGender.SelectedValue, ddNationality.SelectedValue, tbAddr.Text, tbAllergies.Text, tbEmail.Text, phoneNo);
+                
+                if (result == 1)
                 {
-                    string MedCon = "NULL";
-                    int result = client.CreatePatient(tbName.Text, tbNRIC.Text, dob, ddGender.SelectedValue, ddNationality.SelectedValue, tbAddr.Text, MedCon, tbEmail.Text, phoneNo);
-
-                    if (result == 1)
-                    {
-                        Response.Redirect("Success.aspx");
-                    }
-                }
-                else
-                {
-                    int result = client.CreatePatient(tbName.Text, tbNRIC.Text, dob, ddGender.SelectedValue, ddNationality.SelectedValue, tbAddr.Text, tbAllergies.Text, tbEmail.Text, phoneNo);
-
-                    if (result == 1)
-                    {
-                        Response.Redirect("Success.aspx");
-                    }
-                }
+                    Response.Redirect("Success.aspx");
+                }                
             }
         }
 
         // Encrypting NRIC
-        //protected byte[] encryptData(string data)
-        //{
-        //byte[] cipherText = null;
-        //    try
-        //    {
-        //RijndaelManaged cipher = new RijndaelManaged();
-        //cipher.IV = IV;
-        //cipher.Key = Key;
-        //ICryptoTransform encryptTransform = cipher.CreateEncryptor();
-        //ICryptoTransform decryptTransform = cipher.CreateDecryptor();
-        //byte[] plainText = Encoding.UTF8.GetBytes(data);
-        //cipherText = encryptTransform.TransformFinalBlock(plainText, 0, plainText.Length);
-        //}
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception(ex.ToString());
-        //}
-        //    finally { }
-        //    return cipherText;
-        //}
+        protected byte[] encryptData(string data)
+        {
+        byte[] cipherText = null;
+            try
+            {
+        RijndaelManaged cipher = new RijndaelManaged();
+        cipher.IV = IV;
+        cipher.Key = Key;
+        ICryptoTransform encryptTransform = cipher.CreateEncryptor();
+        ICryptoTransform decryptTransform = cipher.CreateDecryptor();
+        byte[] plainText = Encoding.UTF8.GetBytes(data);
+        cipherText = encryptTransform.TransformFinalBlock(plainText, 0, plainText.Length);
+        }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString());
+        }
+            finally { }
+            return cipherText;
+        }
     }
 }

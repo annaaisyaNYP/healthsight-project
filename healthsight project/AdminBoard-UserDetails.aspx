@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Admin Board - User Details" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdminBoard-UserDetails.aspx.cs" Inherits="healthsight_project.AdminBoard_UserDetails" %>
+﻿<%@ Page Title="Admin Board - User Details" Language="C#" MasterPageFile="~/SiteLoggedIn.Master" AutoEventWireup="true" CodeBehind="AdminBoard-UserDetails.aspx.cs" Inherits="healthsight_project.AdminBoard_UserDetails" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>

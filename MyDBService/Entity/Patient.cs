@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.IO;
 
 namespace MyDBService.Entity
 {
@@ -70,13 +72,20 @@ namespace MyDBService.Entity
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
             // Step 3 : Add each parameterised variable with value
-            sqlCmd.Parameters.AddWithValue("@paraNric", NRIC);
+            sqlCmd.Parameters.AddWithValue("@paraNric", Convert.FromBase64String(NRIC));
             sqlCmd.Parameters.AddWithValue("@paraName", Name);
             sqlCmd.Parameters.AddWithValue("@paraDob", DOB);
             sqlCmd.Parameters.AddWithValue("@paraGen", Gender);
             sqlCmd.Parameters.AddWithValue("@paraNat", Nat);
             sqlCmd.Parameters.AddWithValue("@paraAddr", Addr);
-            sqlCmd.Parameters.AddWithValue("@paraMedcon", MedCon);
+            if (MedCon == null)
+            {
+                sqlCmd.Parameters.AddWithValue("@paraMedcon", DBNull.Value);
+            }
+            else
+            {
+                sqlCmd.Parameters.AddWithValue("@paraMedcon", MedCon);
+            }
             sqlCmd.Parameters.AddWithValue("@paraEmail", Email);
             sqlCmd.Parameters.AddWithValue("@paraPhoneNo", PhoneNo);
 
@@ -326,6 +335,6 @@ namespace MyDBService.Entity
                 return -1;
             }
         }
-    }
+
     }
 }

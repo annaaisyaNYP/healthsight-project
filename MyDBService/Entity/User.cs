@@ -122,7 +122,7 @@ namespace MyDBService.Entity
                 string DBConnect = ConfigurationManager.ConnectionStrings["EDPDB"].ConnectionString;
                 SqlConnection myConn = new SqlConnection(DBConnect);
 
-                string sqlStmt = "DELETE FROM User WHERE email = @paraEmail;";
+                string sqlStmt = "DELETE FROM [User] WHERE email = @paraEmail;";
 
                 SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 

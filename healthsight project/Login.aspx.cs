@@ -112,13 +112,13 @@ namespace healthsight_project
         }
 
         protected void BtnLogin_Click(object sender, EventArgs e)
-        {
-            MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
-            User userAdmin = client.GetUserByEmail(tbEmail.Text);
+        {           
             bool validLogin = ValidateLogin();
 
             if (validLogin)
             {
+                MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
+                User userAdmin = client.GetUserByEmail(tbEmail.Text);
                 if (userAdmin.Email == "admin@enterprise.com")
                 {
                     Response.Redirect("AdminBoard.aspx");
