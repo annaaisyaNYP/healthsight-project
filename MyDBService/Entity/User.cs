@@ -84,8 +84,10 @@ namespace MyDBService.Entity
                 DataRow row = ds.Tables[0].Rows[0];
                 string finalhash = row["PassHash"].ToString();
                 string salt = row["PassSalt"].ToString();
-                string key = row["key"].ToString();
-                string iv = row["iv"].ToString();
+                // string key = row["key"].ToString();
+                // string iv = row["iv"].ToString();
+                string key = "";
+                string iv = "";
 
                 obj = new User(email, finalhash, salt, key, iv);
             }

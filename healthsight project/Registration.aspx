@@ -37,7 +37,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 210px; height: 30px">Nationality *</td>
+            <td style="width: 210px; height: 30px">Nationality&nbsp; Type*</td>
             <td style="height: 30px" class="RPtd">
                 <asp:DropDownList ID="ddNationality" runat="server">
                     <asp:ListItem Value="0">- Select - </asp:ListItem>
@@ -92,10 +92,9 @@
         <tr>
             <td class="modal-sm" style="width: 210px; height: 30px">Password *</td>
             <td style="height: 30px">
-                <asp:TextBox ID="tbPass" runat="server" TextMode="Password"></asp:TextBox>
+                <asp:TextBox ID="tbPass" runat="server" TextMode="Password" Height="21px"></asp:TextBox>
                 <br />
-                Requirements: 
-                12 charaters, 1 lowercase, 1 uppercase, 1 number , and 1 special character ( !, *, @, #, $, %, ^, &amp;, +, = ) </td>
+                Requirements: 8 charaters, 1 lowercase, 1 uppercase, 1 number , and 1 special character ( !, *, @, #, $, %, ^, &amp;, +, = ) </td>
         </tr>
         <tr>
             <td class="modal-sm" style="width: 210px">&nbsp;</td>

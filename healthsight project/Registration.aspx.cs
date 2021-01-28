@@ -285,7 +285,7 @@ namespace healthsight_project
 
             try
             {
-                return Regex.IsMatch(pwd, @"^.*(?=.{12,})(?=.+\d)(?=.+[a-z])(?=.+[A-Z])(?=.+[!*@#$%^&+=]).*",
+                return Regex.IsMatch(pwd, @"^.*(?=.{8,})(?=.+\d)(?=.+[a-z])(?=.+[A-Z])(?=.+[!*@#$%^&+=]).*",
                     RegexOptions.None, TimeSpan.FromMilliseconds(250));
             }
             catch (RegexMatchTimeoutException)

@@ -4,9 +4,10 @@
     <h2><%: Title %></h2>
     <h3>Registered Users</h3>
     <!-- TO DO: Fix the mix up btw name and nric-->
-    <asp:GridView ID="GVRegisteredUsers" runat="server" Width="100%" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
+    <asp:Label ID="lbMsg" runat="server" ForeColor="Red"></asp:Label>
+    <asp:GridView ID="GVRegisteredUsers" runat="server" Width="100%" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" 
+      onrowcommand="GVRegisteredUsers_RowCommand">
         <Columns>
-            <asp:BoundField DataField="name" HeaderText="NRIC" />
             <asp:BoundField DataField="nric" HeaderText="Name" />
             <asp:BoundField DataField="dob" HeaderText="Birthdate" DataFormatString="{0:d}" />
             <asp:BoundField DataField="gender" HeaderText="Gender" />
@@ -15,8 +16,7 @@
             <asp:BoundField DataField="phoneNo" HeaderText="Phone No." />
             <asp:BoundField DataField="email" HeaderText="Email" />
             <asp:BoundField DataField="medcon" HeaderText="Medical Condition" />
-            <asp:ButtonField Text="More Info" />
-            <asp:ButtonField Text="Remove" >
+            <asp:ButtonField Text="Remove" commandname="Remove">
             <ControlStyle BackColor="Red" CssClass="btn btn-danger" ForeColor="White" />
             </asp:ButtonField>
         </Columns>        

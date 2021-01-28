@@ -100,6 +100,7 @@ namespace MyDBService.Entity
             return result;
         }
 
+        // TODO: Decrypt NRIC to compare OR is this redundant?
         public Patient SelectByNRIC(string nric)
         {
             //Step 1 -  Define a connection to the database by getting the connection string from web.config
