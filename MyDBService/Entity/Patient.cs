@@ -308,7 +308,7 @@ namespace MyDBService.Entity
             return result;
         }
 
-        // TODO: Add more update methods
+        // TODO: Add more update methods - Address and Phone No.
 
         // Delete Method
         public int DeletePatientByEmail(string email)

@@ -44,6 +44,12 @@
   <wsdl:message name="IService1_CreatePatient_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreatePatientResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_UpdatePatientEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePatientEmail" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdatePatientEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePatientEmailResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_DeletePatientByEmail_InputMessage">
     <wsdl:part name="parameters" element="tns:DeletePatientByEmail" />
   </wsdl:message>
@@ -61,6 +67,12 @@
   </wsdl:message>
   <wsdl:message name="IService1_CreateUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateUserEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserEmail" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateUserEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserEmailResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_DeleteUserByEmail_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteUserByEmail" />
@@ -93,6 +105,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreatePatient" message="tns:IService1_CreatePatient_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreatePatientResponse" message="tns:IService1_CreatePatient_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UpdatePatientEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdatePatientEmail" message="tns:IService1_UpdatePatientEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdatePatientEmailResponse" message="tns:IService1_UpdatePatientEmail_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="DeletePatientByEmail">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeletePatientByEmail" message="tns:IService1_DeletePatientByEmail_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeletePatientByEmailResponse" message="tns:IService1_DeletePatientByEmail_OutputMessage" />
@@ -104,6 +120,10 @@
     <wsdl:operation name="CreateUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateUser" message="tns:IService1_CreateUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateUserResponse" message="tns:IService1_CreateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateUserEmail" message="tns:IService1_UpdateUserEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateUserEmailResponse" message="tns:IService1_UpdateUserEmail_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteUserByEmail">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteUserByEmail" message="tns:IService1_DeleteUserByEmail_InputMessage" />
@@ -166,6 +186,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdatePatientEmail">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdatePatientEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="DeletePatientByEmail">
       <soap:operation soapAction="http://tempuri.org/IService1/DeletePatientByEmail" style="document" />
       <wsdl:input>
@@ -186,6 +215,15 @@
     </wsdl:operation>
     <wsdl:operation name="CreateUser">
       <soap:operation soapAction="http://tempuri.org/IService1/CreateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserEmail">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateUserEmail" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

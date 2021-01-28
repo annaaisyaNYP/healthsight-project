@@ -15,15 +15,6 @@ namespace healthsight_project
     {
 
         /// <summary>
-        /// lbMsg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbMsg;
-
-        /// <summary>
         /// tbName control.
         /// </summary>
         /// <remarks>
@@ -31,6 +22,15 @@ namespace healthsight_project
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbName;
+
+        /// <summary>
+        /// lbMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbMsg;
 
         /// <summary>
         /// tbDOB control.

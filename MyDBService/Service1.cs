@@ -53,12 +53,19 @@ namespace MyDBService
             return patient.Insert();
         }
 
+        public int UpdatePatientEmail(string currEmail, string newEmail)
+        {
+            Patient patient = new Patient();
+            return patient.UpdateEmail(currEmail, newEmail);
+        }
+
         public int DeletePatientByEmail(string email)
         {
             Patient patient = new Patient();
             return patient.DeletePatientByEmail(email);
         }
 
+        // USER METHODS
         public User GetUserByEmail(string email)
         {
             User user = new User();
@@ -69,6 +76,12 @@ namespace MyDBService
         {
             User user = new User(email, finalHash, salt, key, iv);
             return user.Insert();
+        }
+
+        public int UpdateUserEmail(string currEmail, string newEmail)
+        {
+            User user = new User();
+            return user.UpdateEmail(currEmail, newEmail);
         }
 
         public int DeleteUserByEmail(string email)

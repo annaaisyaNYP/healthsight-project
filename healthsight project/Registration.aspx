@@ -7,27 +7,24 @@
         <caption>
             Fields marked * are required</caption>
         <tr>
-            <td style="width: 210px; height: 30px">&nbsp;</td>
-            <td style="height: 30px">
+            <td style="width: 210px; height: 30px">Full Name *</td>
+            <td style="height: 30px; width: 280px;">
+                <asp:TextBox style="width: 200px;" ID="tbName" runat="server"></asp:TextBox>
+            </td>
+            <td rowspan="10" style="vertical-align: top;">
                 <asp:Label ID="lbMsg" runat="server" ForeColor="Red"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td style="width: 210px; height: 30px">Full Name *</td>
-            <td style="height: 30px">
-                <asp:TextBox ID="tbName" runat="server"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
             <td style="width: 210px; height: 30px;">Date of Birth *</td>
-            <td style="height: 30px">
-                <asp:TextBox ID="tbDOB" runat="server" TextMode="Date"></asp:TextBox>
+            <td style="height: 30px; width: 280px;">
+                <asp:TextBox style="width: 200px;" ID="tbDOB" runat="server" TextMode="Date"></asp:TextBox>
                 <br />
                 </td>
         </tr>
         <tr>
             <td style="width: 210px; height: 30px;">Gender *</td>
-            <td style="height: 30px">
+            <td style="height: 30px; width: 280px;">
                 <asp:DropDownList ID="ddGender" runat="server">
                     <asp:ListItem Value="0">- Select -</asp:ListItem>
                     <asp:ListItem Value="M">Male</asp:ListItem>
@@ -38,8 +35,8 @@
         </tr>
         <tr>
             <td style="width: 210px; height: 30px">Nationality&nbsp; Type*</td>
-            <td style="height: 30px" class="RPtd">
-                <asp:DropDownList ID="ddNationality" runat="server">
+            <td style="height: 30px; width: 280px;" class="RPtd">
+                <asp:DropDownList ID="ddNationality" runat="server" style="width: 220px;">
                     <asp:ListItem Value="0">- Select - </asp:ListItem>
                     <asp:ListItem Value="SG">Singaporean</asp:ListItem>
                     <asp:ListItem Value="PR">Singapore Permenant Resident</asp:ListItem>
@@ -49,78 +46,93 @@
         </tr>
         <tr>
             <td style="width: 210px; height: 30px;">&nbsp;NRIC *</td>
-            <td class="RPtd" style="height: 30px">
-                <asp:TextBox ID="tbNRIC" runat="server"></asp:TextBox>
+            <td class="RPtd" style="height: 30px; width: 280px;">
+                <asp:TextBox style="width: 200px;" ID="tbNRIC" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td style="width: 210px; height: 30px;">Address *</td>
-            <td style="height: 30px">
-                <asp:TextBox ID="tbAddr" runat="server" TextMode="MultiLine"></asp:TextBox>
+            <td style="height: 30px; width: 280px;">
+                <asp:TextBox style="width: 200px;" ID="tbAddr" runat="server" TextMode="MultiLine"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td style="width: 210px; height: 30px;">Known Allergies</td>
-            <td style="height: 30px">
-                <asp:TextBox ID="tbAllergies" runat="server"></asp:TextBox>
+            <td style="height: 30px; width: 280px;">
+                <asp:TextBox style="width: 200px;" ID="tbAllergies" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td style="height: 20px; width: 210px;">&nbsp;</td>
-            <td>
+            <td style="width: 280px">
                 <asp:Label ID="lbEmailER" runat="server" ForeColor="Red"></asp:Label>
             </td>
         </tr>
         <tr>
             <td style="height: 30px; width: 210px;">Email *</td>
-            <td style="height: 30px">
-                <asp:TextBox ID="tbEmail" runat="server" TextMode="Email"></asp:TextBox>
+            <td style="height: 30px; width: 280px;">
+                <asp:TextBox style="width: 200px;" ID="tbEmail" runat="server" TextMode="Email"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td style="height: 30px; width: 210px;">Phone No. *</td>
-            <td style="height: 30px">
-                <asp:TextBox ID="tbPhoneNo" runat="server" TextMode="Phone"></asp:TextBox>
+            <td style="height: 30px; width: 280px;">
+                <asp:TextBox style="width: 200px;" ID="tbPhoneNo" runat="server" TextMode="Phone"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="modal-sm" style="width: 210px">&nbsp;</td>
-            <td>
+            <td style="width: 280px">
                 <asp:Label ID="lbPassER" runat="server" ForeColor="Red"></asp:Label>
             </td>
+            <td>
+                &nbsp;</td>
         </tr>
         <tr>
-            <td class="modal-sm" style="width: 210px; height: 30px">Password *</td>
-            <td style="height: 30px">
-                <asp:TextBox ID="tbPass" runat="server" TextMode="Password" Height="21px"></asp:TextBox>
-                <br />
-                Requirements: 8 charaters, 1 lowercase, 1 uppercase, 1 number , and 1 special character ( !, *, @, #, $, %, ^, &amp;, +, = ) </td>
+            <td class="modal-sm" style="width: 210px; height: 30px;">Password *</td>
+            <td style="height: 30px; width: 280px;">
+                <asp:TextBox style="width: 200px;" ID="tbPass" runat="server" TextMode="Password" Height="21px"></asp:TextBox>
+            </td>
+            <td rowspan="3">
+                Password
+                Requirements:
+                <ul>
+                    <li>minimum 8 charaters</li>
+                </ul>
+                <p>
+                    and at least one of each of the following:</p>
+                <ul>
+                    <li>&nbsp;a lowercase</li>
+                    <li>&nbsp;an uppercase</li>
+                    <li>&nbsp;a number</li>
+                    <li>&nbsp;a special character ( !, *, @, #, $, %, ^, &amp;, +, = )</li>
+                </ul>
+             </td>
         </tr>
         <tr>
             <td class="modal-sm" style="width: 210px">&nbsp;</td>
-            <td>
+            <td style="width: 280px">
                 <asp:Label ID="lbConPassER" runat="server" ForeColor="Red"></asp:Label>
             </td>
         </tr>
         <tr>
             <td class="modal-sm" style="width: 210px; height: 30px">Confirm Password *</td>
-            <td>
-                <asp:TextBox ID="tbConfrimPass" runat="server" TextMode="Password"></asp:TextBox>
+            <td style="width: 280px">
+                <asp:TextBox style="width: 200px;" ID="tbConfrimPass" runat="server" TextMode="Password"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="modal-sm" style="width: 210px; height: 17px;"></td>
-            <td style="height: 17px"></td>
+            <td style="height: 17px; width: 280px;"></td>
+            <td style="height: 17px">&nbsp;</td>
         </tr>
         <tr>
             <td class="modal-sm" style="width: 210px">&nbsp;</td>
-            <td>
+            <td style="width: 280px">
                 <asp:Button ID="btnSignUp" runat="server" Text="Sign Up" OnClick="btnSignUp_OnClick"/>
             </td>
-        </tr>
-        <tr>
-            <td class="modal-sm" style="width: 210px">&nbsp;</td>
-            <td>&nbsp;</td>
+            <td>
+                &nbsp;</td>
         </tr>
         </table>
 

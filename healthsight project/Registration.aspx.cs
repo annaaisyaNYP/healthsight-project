@@ -32,7 +32,15 @@ namespace healthsight_project
             {
                 lbMsg.Text += "Full Name is required! </br>";
             }
-            
+
+            // DOB VALIDATION
+            //  - Make sure date is not from the future
+            //  - Make sure user is at least 16 years old             
+            if (!ValidateDOB(tbDOB.Text))
+            {
+                lbMsg.Text += "Date of Birth is invalid! Minimum age requirement: 16 years old." + "<br/>";
+            }
+
             if (ddGender.SelectedIndex == 0)
             {
                 lbMsg.Text += "A gender must be selected! </br>";
@@ -46,6 +54,20 @@ namespace healthsight_project
             if (tbNRIC.Text == "")
             {
                 lbMsg.Text += "ID/NRIC is required! </br>";
+            }
+
+            // NRIC VALIDATION
+            if (!IsNRICValid(tbNRIC.Text))
+            {
+                lbMsg.Text += "NRIC is not valid! </br>";
+            }
+
+            // NRIC ERROR MSG 
+            MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
+            Patient patient = client.GetPatientByNRIC(tbNRIC.Text);
+            if (patient != null)
+            {
+                lbMsg.Text += "NRIC already exists! </br>";
             }
 
             if (tbAddr.Text == "")
@@ -66,28 +88,6 @@ namespace healthsight_project
             if (tbPass.Text == "")
             {
                 lbMsg.Text += "Password is required! </br>";
-            }
-
-            // DOB VALIDATION
-            //  - Make sure date is not from the future
-            //  - Make sure user is at least 16 years old             
-            if (!ValidateDOB(tbDOB.Text))
-            {
-                lbMsg.Text += "Date of Birth is invalid! Minimum age requirement: 16 years old." + "<br/>";
-            }
-            
-            // NRIC VALIDATION
-            if (!IsNRICValid(tbNRIC.Text))
-            {
-                lbMsg.Text += "NRIC is not valid! </br>";
-            }
-
-            // NRIC ERROR MSG 
-            MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
-            Patient patient = client.GetPatientByNRIC(tbNRIC.Text);
-            if (patient != null)
-            {
-                lbMsg.Text += "NRIC already exists! </br>";
             }
 
             // EMAIL VALIDATION

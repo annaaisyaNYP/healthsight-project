@@ -396,6 +396,12 @@ namespace healthsight_project.MyDBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreatePatient", ReplyAction="http://tempuri.org/IService1/CreatePatientResponse")]
         System.Threading.Tasks.Task<int> CreatePatientAsync(string name, string nric, System.DateTime dob, string gen, string nat, string addr, string medcon, string email, double phoneNo);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePatientEmail", ReplyAction="http://tempuri.org/IService1/UpdatePatientEmailResponse")]
+        int UpdatePatientEmail(string currEmail, string newEmail);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePatientEmail", ReplyAction="http://tempuri.org/IService1/UpdatePatientEmailResponse")]
+        System.Threading.Tasks.Task<int> UpdatePatientEmailAsync(string currEmail, string newEmail);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeletePatientByEmail", ReplyAction="http://tempuri.org/IService1/DeletePatientByEmailResponse")]
         int DeletePatientByEmail(string email);
         
@@ -413,6 +419,12 @@ namespace healthsight_project.MyDBServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateUser", ReplyAction="http://tempuri.org/IService1/CreateUserResponse")]
         System.Threading.Tasks.Task<int> CreateUserAsync(string email, string finalHash, string salt, string key, string iv);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateUserEmail", ReplyAction="http://tempuri.org/IService1/UpdateUserEmailResponse")]
+        int UpdateUserEmail(string currEmail, string newEmail);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateUserEmail", ReplyAction="http://tempuri.org/IService1/UpdateUserEmailResponse")]
+        System.Threading.Tasks.Task<int> UpdateUserEmailAsync(string currEmail, string newEmail);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteUserByEmail", ReplyAction="http://tempuri.org/IService1/DeleteUserByEmailResponse")]
         int DeleteUserByEmail(string email);
@@ -496,6 +508,14 @@ namespace healthsight_project.MyDBServiceReference {
             return base.Channel.CreatePatientAsync(name, nric, dob, gen, nat, addr, medcon, email, phoneNo);
         }
         
+        public int UpdatePatientEmail(string currEmail, string newEmail) {
+            return base.Channel.UpdatePatientEmail(currEmail, newEmail);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdatePatientEmailAsync(string currEmail, string newEmail) {
+            return base.Channel.UpdatePatientEmailAsync(currEmail, newEmail);
+        }
+        
         public int DeletePatientByEmail(string email) {
             return base.Channel.DeletePatientByEmail(email);
         }
@@ -518,6 +538,14 @@ namespace healthsight_project.MyDBServiceReference {
         
         public System.Threading.Tasks.Task<int> CreateUserAsync(string email, string finalHash, string salt, string key, string iv) {
             return base.Channel.CreateUserAsync(email, finalHash, salt, key, iv);
+        }
+        
+        public int UpdateUserEmail(string currEmail, string newEmail) {
+            return base.Channel.UpdateUserEmail(currEmail, newEmail);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateUserEmailAsync(string currEmail, string newEmail) {
+            return base.Channel.UpdateUserEmailAsync(currEmail, newEmail);
         }
         
         public int DeleteUserByEmail(string email) {

@@ -100,7 +100,7 @@ namespace MyDBService.Entity
             string DBConnect = ConfigurationManager.ConnectionStrings["EDPDB"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "UPDATE Patient SET email = @paraNewEmail where email = @paraCurrEmail";
+            string sqlStmt = "UPDATE [User] SET email = @paraNewEmail where email = @paraCurrEmail";
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 

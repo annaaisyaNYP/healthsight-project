@@ -92,6 +92,21 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="UpdatePatientEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="currEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newEmail" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePatientEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdatePatientEmailResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="DeletePatientByEmail">
     <xs:complexType>
       <xs:sequence>
@@ -135,6 +150,21 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="CreateUserResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="currEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newEmail" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateUserEmailResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
