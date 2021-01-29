@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
+using System.Web;
 using System.Web.UI;
 using healthsight_project.MyDBServiceReference;
 using System.Globalization;
@@ -103,7 +104,14 @@ namespace healthsight_project
                 string passWithSalt = pass + dbSalt;
                 byte[] hashWithSalt = hashing.ComputeHash(Encoding.UTF8.GetBytes(passWithSalt));
                 string userHash = Convert.ToBase64String(hashWithSalt);
-                return true;
+                if (userHash.Equals(dbHash))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
@@ -118,15 +126,29 @@ namespace healthsight_project
             if (validLogin)
             {
                 MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
-                User userAdmin = client.GetUserByEmail(tbEmail.Text);
-                if (userAdmin.Email == "admin@enterprise.com")
+                User userData = client.GetUserByEmail(tbEmail.Text);
+                if (userData.Email == "admin@enterprise.com")
                 {
+                    Session["LoggedIn"] = userData.Email;
+
+                    string guid = Guid.NewGuid().ToString();
+                    Session["AuthToken"] = guid;
+
+                    Response.Cookies.Add(new HttpCookie("AuthToken", guid));
+
                     Response.Redirect("AdminBoard.aspx");
                 }
 
                 else
                 {
-                    Response.Redirect("Success.aspx");
+                    Session["LoggedIn"] = userData.Email;
+
+                    string guid = Guid.NewGuid().ToString();
+                    Session["AuthToken"] = guid;
+
+                    Response.Cookies.Add(new HttpCookie("AuthToken", guid));
+
+                    Response.Redirect("UserBoard.aspx");
                 }
             }
         }
