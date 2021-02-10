@@ -91,6 +91,7 @@
             <td class="modal-sm" style="width: 210px">&nbsp;</td>
             <td style="width: 280px">
                 <asp:Label ID="lbPassER" runat="server" ForeColor="Red"></asp:Label>
+                <asp:Label ID="lbPassStrength" runat="server"></asp:Label>
             </td>
             <td>
                 &nbsp;</td>
@@ -98,7 +99,7 @@
         <tr>
             <td class="modal-sm" style="width: 210px; height: 30px;">Password *</td>
             <td style="height: 30px; width: 280px;">
-                <asp:TextBox style="width: 200px;" ID="tbPass" runat="server" TextMode="Password" Height="21px"></asp:TextBox>
+                <asp:TextBox style="width: 200px;" ID="tbPass" runat="server" TextMode="Password" Height="21px" onkeyup="javascript:validate()"></asp:TextBox>
             </td>
             <td rowspan="3">
                 Password
@@ -142,7 +143,45 @@
                 &nbsp;</td>
         </tr>
         </table>
+    
+    <script type="text/javascript">
+        function validate() {
+            var str = document.getElementById('<%= tbPass.ClientID %>').value;
 
-    <br>
+            if (str.length < 8) {
+                document.getElementById('<%= lbPassStrength.ClientID %>').innerHTML = "Password Strength: Very Weak";
+                document.getElementById('<%= lbPassStrength.ClientID %>').style.color = "Red";
+                return "too_short";
+            }
+
+            else if (str.search(/[a-z]/) == -1) {
+                document.getElementById('<%= lbPassStrength.ClientID %>').innerHTML = "Password Strength: Weak";
+                document.getElementById('<%= lbPassStrength.ClientID %>').style.color = "#FF8C00";
+                return "no_lwc";
+            }
+
+            else if (str.search(/[A-Z]/) == -1) {
+                document.getElementById('<%= lbPassStrength.ClientID %>').innerHTML = "Password Strength: Medium";
+                document.getElementById('<%= lbPassStrength.ClientID %>').style.color = "#FFCC00";
+                return "no_upc";
+            }
+
+            else if (str.search(/[0-9]/) == -1) {
+                document.getElementById('<%= lbPassStrength.ClientID %>').innerHTML = "Password Strength: Okay";
+                document.getElementById('<%= lbPassStrength.ClientID %>').style.color = "#FFCC00";
+                return "no_number";
+            }
+
+            else if (str.search(/[!*@#$%^&+=]/) == -1) {
+                document.getElementById('<%= lbPassStrength.ClientID %>').innerHTML = "Password Strength: Strong";
+                document.getElementById('<%= lbPassStrength.ClientID %>').style.color = "#FFCC00";
+                return "no_spc";
+            }
+
+            document.getElementById('<%= lbPassStrength.ClientID %>').innerHTML = "Password Strength: Very Strong";
+            document.getElementById('<%= lbPassStrength.ClientID %>').style.color = "Lime";
+            return "good";
+        }
+    </script>
 
 </asp:Content>
