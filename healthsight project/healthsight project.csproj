@@ -190,6 +190,9 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="UpdateAddr.aspx" />
+    <Content Include="UpdateContactNo.aspx" />
+    <Content Include="UpdateEmail.aspx" />
     <Content Include="UserBoard.aspx" />
     <Content Include="UserSettings.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -264,6 +267,27 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateAddr.aspx.cs">
+      <DependentUpon>UpdateAddr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateAddr.aspx.designer.cs">
+      <DependentUpon>UpdateAddr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateContactNo.aspx.cs">
+      <DependentUpon>UpdateContactNo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateContactNo.aspx.designer.cs">
+      <DependentUpon>UpdateContactNo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateEmail.aspx.cs">
+      <DependentUpon>UpdateEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateEmail.aspx.designer.cs">
+      <DependentUpon>UpdateEmail.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserBoard.aspx.cs">
       <DependentUpon>UserBoard.aspx</DependentUpon>

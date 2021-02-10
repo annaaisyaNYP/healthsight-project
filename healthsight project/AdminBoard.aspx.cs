@@ -27,7 +27,8 @@ namespace healthsight_project
             GVRegisteredUsers.DataBind();
         }
 
-        //bool ConfrimDelete()
+        //bool ConfirmDelete() 
+        //TODO: implement confirm delete with js
 
         protected void GVRegisteredUsers_RowCommand(Object sender, GridViewCommandEventArgs e)
         {
@@ -43,25 +44,24 @@ namespace healthsight_project
                 // Get the last name of the selected author from the appropriate
                 // cell in the GridView control.
                 GridViewRow selectedRow = GVRegisteredUsers.Rows[index];
-                TableCell TableEmail = selectedRow.Cells[6];
+                TableCell TableEmail = selectedRow.Cells[3];
                 string email = TableEmail.Text;
 
-                lbMsg.Text += "You selected " + email + ".";
+                int RemovePatient;
+                int RemoveUser;
+                MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
+                RemovePatient = client.DeletePatientByEmail(email);
+                RemoveUser = client.DeleteUserByEmail(email);
 
-                //int RemovePatient;
-                //int RemoveUser;
-                //MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
-                //RemovePatient = client.DeletePatientByEmail(email);
-                //RemoveUser = client.DeleteUserByEmail(email);
-
-                //if(RemovePatient == 0 || RemoveUser == 0)
-                //{
-                //    lbMsg.Text += "Deleting user failed";
-                //}
-                //else
-                //{
-                //    lbMsg.Text += "User with " + email + " has been deleted.";
-                //}
+                if(RemovePatient == 0 || RemoveUser == 0)
+                {
+                    lbMsg.Text += "Deleting user failed";
+                }
+                else
+                {
+                    lbMsg.Text += "User with " + email + " has been deleted.";
+                }
+                RefreshGridView();
             }
         }
     }

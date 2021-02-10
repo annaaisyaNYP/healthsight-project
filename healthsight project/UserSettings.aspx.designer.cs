@@ -15,49 +15,67 @@ namespace healthsight_project
     {
 
         /// <summary>
-        /// lbUpdEmailEr control.
+        /// btnLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbUpdEmailEr;
+        protected global::System.Web.UI.WebControls.Button btnLogout;
 
         /// <summary>
-        /// lbCurrEmail control.
+        /// lbEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbCurrEmail;
+        protected global::System.Web.UI.WebControls.Label lbEmail;
 
         /// <summary>
-        /// tbEmail control.
+        /// btnEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbEmail;
+        protected global::System.Web.UI.WebControls.Button btnEmail;
 
         /// <summary>
-        /// tbConPass4Email control.
+        /// lbPhoneNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbConPass4Email;
+        protected global::System.Web.UI.WebControls.Label lbPhoneNo;
 
         /// <summary>
-        /// btnUpdEmail control.
+        /// btnPhoneNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdEmail;
+        protected global::System.Web.UI.WebControls.Button btnPhoneNo;
+
+        /// <summary>
+        /// lbAddr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbAddr;
+
+        /// <summary>
+        /// btnAddr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddr;
 
         /// <summary>
         /// lbUpdPassEr control.
@@ -87,6 +105,15 @@ namespace healthsight_project
         protected global::System.Web.UI.WebControls.TextBox tbNewPass;
 
         /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+
+        /// <summary>
         /// tbConPass control.
         /// </summary>
         /// <remarks>
@@ -103,14 +130,5 @@ namespace healthsight_project
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpdPass;
-
-        /// <summary>
-        /// btnDltAcc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDltAcc;
     }
 }

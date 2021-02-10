@@ -10,14 +10,10 @@
         <Columns>
             <asp:BoundField DataField="nric" HeaderText="Name" />
             <asp:BoundField DataField="dob" HeaderText="Birthdate" DataFormatString="{0:d}" />
-            <asp:BoundField DataField="gender" HeaderText="Gender" />
-            <asp:BoundField DataField="nat" HeaderText="Nationality" />
-            <asp:BoundField DataField="addr" HeaderText="Address" />
             <asp:BoundField DataField="phoneNo" HeaderText="Phone No." />
             <asp:BoundField DataField="email" HeaderText="Email" />
-            <asp:BoundField DataField="medcon" HeaderText="Medical Condition" />
             <asp:ButtonField Text="Remove" commandname="Remove">
-            <ControlStyle BackColor="Red" CssClass="btn btn-danger" ForeColor="White" />
+              <ControlStyle BackColor="Red" CssClass="btn btn-danger" ForeColor="White" />
             </asp:ButtonField>
         </Columns>        
         <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
@@ -29,4 +25,5 @@
         <SortedDescendingCellStyle BackColor="#E5E5E5" />
         <SortedDescendingHeaderStyle BackColor="#242121" />
     </asp:GridView>
+
 </asp:Content>
