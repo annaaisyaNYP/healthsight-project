@@ -78,13 +78,13 @@ namespace healthsight_project
         protected global::System.Web.UI.WebControls.Button btnAddr;
 
         /// <summary>
-        /// lbUpdPassEr control.
+        /// lbMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbUpdPassEr;
+        protected global::System.Web.UI.WebControls.Label lbMsg;
 
         /// <summary>
         /// tbCurrPass control.

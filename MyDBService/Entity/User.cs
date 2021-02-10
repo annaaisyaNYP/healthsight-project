@@ -121,8 +121,8 @@ namespace MyDBService.Entity
             string DBConnect = ConfigurationManager.ConnectionStrings["EDPDB"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "UPDATE [User] SET passwordHash = @PassHash, passwordSalt = @PassSalt, " +
-                    "[key] = @Key, IV = @IV, WHERE email = @Email";
+            string sqlStmt = "UPDATE [User] SET passHash = @PassHash, passSalt = @PassSalt, " +
+                    "[key] = @Key, IV = @IV WHERE email = @Email";
             SqlCommand cmd = new SqlCommand(sqlStmt, myConn);
 
             cmd.Parameters.AddWithValue("@Email",email);

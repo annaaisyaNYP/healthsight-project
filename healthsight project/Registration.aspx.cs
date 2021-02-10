@@ -298,7 +298,7 @@ namespace healthsight_project
         {
             bool validinput = ValidateInput();
 
-            if (validinput)
+            if (validinput && lbPassER.Text == "")
             {
                 //Encrypting Password
                 string pwd = tbPass.Text.ToString().Trim(); ;

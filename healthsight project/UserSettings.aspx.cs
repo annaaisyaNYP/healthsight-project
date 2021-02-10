@@ -16,7 +16,7 @@ namespace healthsight_project
         byte[] IV;
         protected void Page_Load(object sender, EventArgs e)
         {
-            lbUpdPassEr.Text = "";
+            lbMsg.Text = "";
             string email = Session["LoggedIn"].ToString();
             MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
             Patient patientData = client.GetPatientByEmail(email);
@@ -54,7 +54,14 @@ namespace healthsight_project
                 string passWithSalt = pass + dbSalt;
                 byte[] hashWithSalt = hashing.ComputeHash(Encoding.UTF8.GetBytes(passWithSalt));
                 string userHash = Convert.ToBase64String(hashWithSalt);
-                return true;
+                if (userHash.Equals(dbHash))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
@@ -66,13 +73,17 @@ namespace healthsight_project
         {
             if (!IsPasswordCorrect(Session["LoggedIn"].ToString(),tbCurrPass.Text))
             {
-                lbUpdPassEr.Text += "Incorrect Password. </br>";
+                lbMsg.Text += "Incorrect Password. </br>";
             }
             if (!IsPasswordValid(tbNewPass.Text))
             {
-                lbUpdPassEr.Text += "Invalid Password. Please follow the requirements. </br>";
+                lbMsg.Text += "Invalid Password. Please follow the requirements. </br>";
             }
-            if (lbUpdPassEr.Text == "")
+            if (tbNewPass.Text == tbConPass.Text)
+            {
+                lbMsg.Text += "Passwords do not match. </br>";
+            }
+            if (lbMsg.Text == "")
             {
                 return true;
             }

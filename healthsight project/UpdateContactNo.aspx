@@ -7,13 +7,13 @@
         <tr>
             <td style="width: 210px; height: 30px;">Contact No</td>
             <td style="height: 30px;">
-                <asp:TextBox ID="tbPhoneNo" runat="server" style="width: 200px;"></asp:TextBox>
+                <asp:TextBox ID="tbPhoneNo" runat="server" style="width: 200px;" TextMode="Phone"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td style="width: 210px; height: 30px;">Confrim Password</td>
             <td style="height: 30px;">
-                <asp:TextBox ID="tbConPass" runat="server" style="width: 200px;"></asp:TextBox>
+                <asp:TextBox ID="tbConPass" runat="server" style="width: 200px;" TextMode="Password"></asp:TextBox>
             </td>
         </tr>
         <tr>

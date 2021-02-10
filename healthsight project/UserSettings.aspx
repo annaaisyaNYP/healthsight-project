@@ -32,12 +32,12 @@
     </table>
 
     <h3 id="ChaPassLink">Change Password</h3>
-    <asp:Label ID="lbUpdPassEr" runat="server" ForeColor="Red"></asp:Label>
+    <asp:Label ID="lbMsg" runat="server" ForeColor="Red"></asp:Label>
     <table style="width: 810px;">
         <tr>
             <td style="width: 210px; height: 30px;">Current Password</td>
             <td style="height: 30px; width: 205px;">
-                <asp:TextBox ID="tbCurrPass" runat="server" style="width: 200px;"></asp:TextBox>
+                <asp:TextBox ID="tbCurrPass" runat="server" style="width: 200px;" TextMode="Password"></asp:TextBox>
             </td>
             <td style="height: 30px;">
                 &nbsp;</td>
@@ -45,7 +45,7 @@
         <tr>
             <td style="width: 210px; height: 30px;">New Password</td>
             <td style="height: 30px; width: 205px;">
-                <asp:TextBox ID="tbNewPass" runat="server" style="width: 200px;"></asp:TextBox>
+                <asp:TextBox ID="tbNewPass" runat="server" style="width: 200px;" TextMode="Password" onKeyUp="javascript:validate()"></asp:TextBox>
             </td>
             <td style="height: 30px; width: 50%;">
                 <asp:Label ID="lbPassStrength" runat="server"></asp:Label>
@@ -63,7 +63,7 @@
         <tr>
             <td style="width: 210px; height: 30px;">Confirm New Password</td>
             <td style="height: 30px; width: 205px;">
-                <asp:TextBox ID="tbConPass" runat="server" style="width: 200px;"></asp:TextBox>
+                <asp:TextBox ID="tbConPass" runat="server" style="width: 200px;" TextMode="Password"></asp:TextBox>
             </td>
             <td style="height: 30px;">
                 &nbsp;</td>
