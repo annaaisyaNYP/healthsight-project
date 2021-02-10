@@ -100,7 +100,7 @@ namespace MyDBService.Entity
             string DBConnect = ConfigurationManager.ConnectionStrings["EDPDB"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "UPDATE [User] SET email = @paraNewEmail where email = @paraCurrEmail";
+            string sqlStmt = "UPDATE [User] SET email = @paraNewEmail WHERE email = @paraCurrEmail";
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
@@ -110,6 +110,29 @@ namespace MyDBService.Entity
 
             myConn.Open();
             int result = sqlCmd.ExecuteNonQuery();
+
+            myConn.Close();
+
+            return result;
+        }
+
+        public int UpdatePassword(string email, string finalhash, string salt, string key, string iv)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["EDPDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "UPDATE [User] SET passwordHash = @PassHash, passwordSalt = @PassSalt, " +
+                    "[key] = @Key, IV = @IV, WHERE email = @Email";
+            SqlCommand cmd = new SqlCommand(sqlStmt, myConn);
+
+            cmd.Parameters.AddWithValue("@Email",email);
+            cmd.Parameters.AddWithValue("@PassHash", finalhash);
+            cmd.Parameters.AddWithValue("@PassSalt", salt);
+            cmd.Parameters.AddWithValue("@Key", key);
+            cmd.Parameters.AddWithValue("@IV",iv);
+
+            myConn.Open();
+            int result = cmd.ExecuteNonQuery();
 
             myConn.Close();
 

@@ -402,6 +402,18 @@ namespace healthsight_project.MyDBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePatientEmail", ReplyAction="http://tempuri.org/IService1/UpdatePatientEmailResponse")]
         System.Threading.Tasks.Task<int> UpdatePatientEmailAsync(string currEmail, string newEmail);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePatientPhoneNo", ReplyAction="http://tempuri.org/IService1/UpdatePatientPhoneNoResponse")]
+        int UpdatePatientPhoneNo(string email, string phoneNo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePatientPhoneNo", ReplyAction="http://tempuri.org/IService1/UpdatePatientPhoneNoResponse")]
+        System.Threading.Tasks.Task<int> UpdatePatientPhoneNoAsync(string email, string phoneNo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePatientAddr", ReplyAction="http://tempuri.org/IService1/UpdatePatientAddrResponse")]
+        int UpdatePatientAddr(string email, string addr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePatientAddr", ReplyAction="http://tempuri.org/IService1/UpdatePatientAddrResponse")]
+        System.Threading.Tasks.Task<int> UpdatePatientAddrAsync(string email, string addr);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeletePatientByEmail", ReplyAction="http://tempuri.org/IService1/DeletePatientByEmailResponse")]
         int DeletePatientByEmail(string email);
         
@@ -425,6 +437,12 @@ namespace healthsight_project.MyDBServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateUserEmail", ReplyAction="http://tempuri.org/IService1/UpdateUserEmailResponse")]
         System.Threading.Tasks.Task<int> UpdateUserEmailAsync(string currEmail, string newEmail);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateUserPassword", ReplyAction="http://tempuri.org/IService1/UpdateUserPasswordResponse")]
+        int UpdateUserPassword(string email, string finalHash, string salt, string key, string iv);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateUserPassword", ReplyAction="http://tempuri.org/IService1/UpdateUserPasswordResponse")]
+        System.Threading.Tasks.Task<int> UpdateUserPasswordAsync(string email, string finalHash, string salt, string key, string iv);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteUserByEmail", ReplyAction="http://tempuri.org/IService1/DeleteUserByEmailResponse")]
         int DeleteUserByEmail(string email);
@@ -516,6 +534,22 @@ namespace healthsight_project.MyDBServiceReference {
             return base.Channel.UpdatePatientEmailAsync(currEmail, newEmail);
         }
         
+        public int UpdatePatientPhoneNo(string email, string phoneNo) {
+            return base.Channel.UpdatePatientPhoneNo(email, phoneNo);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdatePatientPhoneNoAsync(string email, string phoneNo) {
+            return base.Channel.UpdatePatientPhoneNoAsync(email, phoneNo);
+        }
+        
+        public int UpdatePatientAddr(string email, string addr) {
+            return base.Channel.UpdatePatientAddr(email, addr);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdatePatientAddrAsync(string email, string addr) {
+            return base.Channel.UpdatePatientAddrAsync(email, addr);
+        }
+        
         public int DeletePatientByEmail(string email) {
             return base.Channel.DeletePatientByEmail(email);
         }
@@ -546,6 +580,14 @@ namespace healthsight_project.MyDBServiceReference {
         
         public System.Threading.Tasks.Task<int> UpdateUserEmailAsync(string currEmail, string newEmail) {
             return base.Channel.UpdateUserEmailAsync(currEmail, newEmail);
+        }
+        
+        public int UpdateUserPassword(string email, string finalHash, string salt, string key, string iv) {
+            return base.Channel.UpdateUserPassword(email, finalHash, salt, key, iv);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateUserPasswordAsync(string email, string finalHash, string salt, string key, string iv) {
+            return base.Channel.UpdateUserPasswordAsync(email, finalHash, salt, key, iv);
         }
         
         public int DeleteUserByEmail(string email) {

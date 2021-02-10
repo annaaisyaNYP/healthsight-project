@@ -59,6 +59,18 @@ namespace MyDBService
             return patient.UpdateEmail(currEmail, newEmail);
         }
 
+        public int UpdatePatientPhoneNo(string email, string phoneNo)
+        {
+            Patient patient = new Patient();
+            return patient.UpdatePhoneNo(email, phoneNo);
+        }
+
+        public int UpdatePatientAddr(string email, string addr)
+        {
+            Patient patient = new Patient();
+            return patient.UpdateAddr(email, addr);
+        }
+
         public int DeletePatientByEmail(string email)
         {
             Patient patient = new Patient();
@@ -82,6 +94,12 @@ namespace MyDBService
         {
             User user = new User();
             return user.UpdateEmail(currEmail, newEmail);
+        }
+
+        public int UpdateUserPassword(string email, string finalHash, string salt, string key, string iv)
+        {
+            User user = new User();
+            return user.UpdatePassword(email, finalHash, salt, key, iv);
         }
 
         public int DeleteUserByEmail(string email)

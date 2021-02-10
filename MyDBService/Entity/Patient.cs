@@ -308,6 +308,48 @@ namespace MyDBService.Entity
             return result;
         }
 
+        public int UpdatePhoneNo(string email, string phoneNo)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["EDPDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "UPDATE Patient SET phoneNo = @paraPhoneNo where email = @paraEmail";
+
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            //sqlCmd.Parameters.AddWithValue("@para",);
+            sqlCmd.Parameters.AddWithValue("@paraEmail", email);
+            sqlCmd.Parameters.AddWithValue("@paraAddr", phoneNo);
+
+            myConn.Open();
+            int result = sqlCmd.ExecuteNonQuery();
+
+            myConn.Close();
+
+            return result;
+        }
+
+        public int UpdateAddr(string email, string addr)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["EDPDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "UPDATE Patient SET addr = @paraAddr where email = @paraEmail";
+
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            //sqlCmd.Parameters.AddWithValue("@para",);
+            sqlCmd.Parameters.AddWithValue("@paraEmail", email);
+            sqlCmd.Parameters.AddWithValue("@paraAddr", addr);
+
+            myConn.Open();
+            int result = sqlCmd.ExecuteNonQuery();
+
+            myConn.Close();
+
+            return result;
+        }
+
         // TODO: Add more update methods - Address and Phone No.
 
         // Delete Method

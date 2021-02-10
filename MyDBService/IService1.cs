@@ -35,6 +35,12 @@ namespace MyDBService
         int UpdatePatientEmail(string currEmail, string newEmail);
 
         [OperationContract]
+        int UpdatePatientPhoneNo(string email, string phoneNo);
+
+        [OperationContract]
+        int UpdatePatientAddr(string email, string addr);
+
+        [OperationContract]
         int DeletePatientByEmail(string email);
 
         [OperationContract]
@@ -45,6 +51,9 @@ namespace MyDBService
 
         [OperationContract]
         int UpdateUserEmail(string currEmail, string newEmail);
+
+        [OperationContract]
+        int UpdateUserPassword(string email, string finalHash, string salt, string key, string iv);
 
         [OperationContract]
         int DeleteUserByEmail(string email);
