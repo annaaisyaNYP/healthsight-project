@@ -125,9 +125,12 @@
     </None>
     <Content Include="Login.aspx" />
     <Content Include="About.aspx" />
-    <Content Include="App_Data\EDPDB.mdf" />
+    <Content Include="App_Data\EDPDB.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="App_Data\EDPDB_log.ldf">
       <DependentUpon>EDPDB.mdf</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Registration.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
