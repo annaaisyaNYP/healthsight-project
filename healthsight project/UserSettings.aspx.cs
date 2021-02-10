@@ -17,8 +17,12 @@ namespace healthsight_project
         protected void Page_Load(object sender, EventArgs e)
         {
             lbUpdPassEr.Text = "";
+            string email = Session["LoggedIn"].ToString();
             MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
-            Session["LoggedIn"].ToString();
+            Patient patientData = client.GetPatientByEmail(email);
+            lbEmail.Text += patientData.Email;
+            lbPhoneNo.Text += patientData.PhoneNo;
+            lbAddr.Text += patientData.Addr;
         }
 
         // Created with reference from the above method
@@ -117,6 +121,7 @@ namespace healthsight_project
 
         protected void btnUpdPass_Click(object sender, EventArgs e)
         {
+            string email = Session["LoggedIn"].ToString();
             bool passvalid = ValidatePassword();
 
             if (passvalid)
@@ -141,8 +146,17 @@ namespace healthsight_project
                 cipher.GenerateKey();
                 Key = cipher.Key;
                 IV = cipher.IV;
-                
 
+                string Key64 = Convert.ToBase64String(Key);
+                string IV64 = Convert.ToBase64String(IV);
+
+                MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
+                int result = client.UpdateUserPassword(email,finalHash,salt,Key64,IV64);
+
+                if (result == 1)
+                {
+                    //PanelSuccess.Visible = true;
+                }
             }
         }
     }

@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2 id="UpdEmailLink">Update Email</h2>
-    <asp:Label ID="lbUpdEmailEr" runat="server" ForeColor="Red"></asp:Label>
+    <asp:Label ID="lbMsg" runat="server" ForeColor="Red"></asp:Label>
     <table class="nav-justified">
         <tr>
             <td style="width: 210px; height: 30px;">Update Email</td>
@@ -19,7 +19,7 @@
         <tr>
             <td style="width: 210px; height: 30px;"></td>
             <td style="height: 30px;">
-              <asp:Button style="width: 200px;" ID="btnUpdEmail" runat="server" Text="Update Email" OnClick="btnUpdEmail_Click" />
+              <asp:Button style="width: 200px;" ID="btnUpdEmail" runat="server" Text="Update Email" OnClick="btnUpdEmail_Click" CssClass="btn" />
             </td>
         </tr>
     </table>

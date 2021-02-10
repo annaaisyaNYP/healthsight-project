@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%:Title %></h2>
 
-    <asp:Button ID="btnLogout" runat="server" Text="Logout" CssClass="btn btn-default" OnClick="btnLogout_Click" />
+    <asp:Button ID="btnLogout" runat="server" Text="Logout" CssClass="btn " OnClick="btnLogout_Click" />
 
     <h3>Update Info</h3>
     <table style="width: 800px;">
@@ -33,7 +33,7 @@
 
     <h3 id="ChaPassLink">Change Password</h3>
     <asp:Label ID="lbUpdPassEr" runat="server" ForeColor="Red"></asp:Label>
-    <table style="width: 800px;">
+    <table style="width: 810px;">
         <tr>
             <td style="width: 210px; height: 30px;">Current Password</td>
             <td style="height: 30px; width: 205px;">
@@ -47,14 +47,18 @@
             <td style="height: 30px; width: 205px;">
                 <asp:TextBox ID="tbNewPass" runat="server" style="width: 200px;"></asp:TextBox>
             </td>
-            <td style="height: 30px; width: 45%;">
+            <td style="height: 30px; width: 50%;">
                 <asp:Label ID="lbPassStrength" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
             <td style="width: 210px; height: 30px;">&nbsp;</td>
             <td style="height: 30px;" colspan="2">
-                Requirements: minimum 8 charaters, and at least one of each of the following: a lowercase, an uppercase, a number and a special character ( !, *, @, #, $, %, ^, &amp;, +, = )</td>
+                <ul style="list-style-type: none; padding: 0px; margin: 0px;">
+                    <li>Requirements: minimum 8 charaters, and at least one of each of the following:</li>
+                    <li>a lowercase, an uppercase, a number and a special character ( !, *, @, #, $, %, ^, &amp;, +, = )</li>
+                </ul>
+            </td>
         </tr>
         <tr>
             <td style="width: 210px; height: 30px;">Confirm New Password</td>
@@ -67,7 +71,7 @@
         <tr>
             <td style="width: 210px; height: 32px;">&nbsp;</td>
             <td style="height: 32px; width: 205px;">
-                <asp:Button style="width: 200px;" ID="btnUpdPass" runat="server" Text="Change Password" CssClass="btn btn-default" OnClick="btnUpdPass_Click" />
+                <asp:Button style="width: 200px;" ID="btnUpdPass" runat="server" Text="Change Password" CssClass="btn " OnClick="btnUpdPass_Click" />
             </td>
             <td style="height: 32px;">
                 &nbsp;</td>
