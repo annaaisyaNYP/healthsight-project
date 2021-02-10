@@ -341,7 +341,7 @@ namespace healthsight_project
                 
                 if (result == 1)
                 {
-                    Response.Redirect("Success.aspx");
+                    PanelSuccess.Visible = true;
                 }                
             }
         }

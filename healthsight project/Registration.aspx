@@ -3,6 +3,13 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %></h2>
 
+    <asp:Panel ID="PanelSuccess" Visible="false" runat="server" CssClass="alert alert-dismissable alert-success">
+      <button type="button" class="close" data-dismiss="alert">
+      <span aria-hidden="true">&times;</span>
+      </button>
+      <asp:Label ID="lbSuccess" runat="server">Account successfully registered! <a href="Login.aspx">Login now</a>! </asp:Label>
+    </asp:Panel>
+
     <table class="nav-justified" style="margin: 20px; font-size: 12px; margin-bottom: 0px;">
         <caption>
             Fields marked * are required</caption>

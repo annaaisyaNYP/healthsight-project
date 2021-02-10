@@ -124,7 +124,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Login.aspx" />
-    <Content Include="Success.aspx" />
     <Content Include="About.aspx" />
     <Content Include="App_Data\EDPDB.mdf" />
     <Content Include="App_Data\EDPDB_log.ldf">
@@ -224,13 +223,6 @@
     </Compile>
     <Compile Include="SiteLoggedIn.Master.designer.cs">
       <DependentUpon>SiteLoggedIn.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Success.aspx.cs">
-      <DependentUpon>Success.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Success.aspx.designer.cs">
-      <DependentUpon>Success.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
