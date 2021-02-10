@@ -36,7 +36,7 @@
     <table style="width: 800px;">
         <tr>
             <td style="width: 210px; height: 30px;">Current Password</td>
-            <td style="height: 30px; width: 317px;">
+            <td style="height: 30px; width: 205px;">
                 <asp:TextBox ID="tbCurrPass" runat="server" style="width: 200px;"></asp:TextBox>
             </td>
             <td style="height: 30px;">
@@ -44,11 +44,11 @@
         </tr>
         <tr>
             <td style="width: 210px; height: 30px;">New Password</td>
-            <td style="height: 30px; width: 317px;">
+            <td style="height: 30px; width: 205px;">
                 <asp:TextBox ID="tbNewPass" runat="server" style="width: 200px;"></asp:TextBox>
             </td>
-            <td style="height: 30px;">
-                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+            <td style="height: 30px; width: 45%;">
+                <asp:Label ID="lbPassStrength" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -58,7 +58,7 @@
         </tr>
         <tr>
             <td style="width: 210px; height: 30px;">Confirm New Password</td>
-            <td style="height: 30px; width: 317px;">
+            <td style="height: 30px; width: 205px;">
                 <asp:TextBox ID="tbConPass" runat="server" style="width: 200px;"></asp:TextBox>
             </td>
             <td style="height: 30px;">
@@ -66,14 +66,55 @@
         </tr>
         <tr>
             <td style="width: 210px; height: 32px;">&nbsp;</td>
-            <td style="height: 32px; width: 317px;">
-                <asp:Button style="width: 200px;" ID="btnUpdPass" runat="server" Text="Change Password" CssClass="btn btn-default" />
+            <td style="height: 32px; width: 205px;">
+                <asp:Button style="width: 200px;" ID="btnUpdPass" runat="server" Text="Change Password" CssClass="btn btn-default" OnClick="btnUpdPass_Click" />
             </td>
             <td style="height: 32px;">
                 &nbsp;</td>
         </tr>
-    </table>
+    </table></br>
 
+    <asp:Button ID="btnDeleteAcc" runat="server" Text="Delete Account" CssClass="btn btn-danger" />
+
+    <script type="text/javascript">
+        function validate() {
+            var str = document.getElementById('<%= tbNewPass.ClientID %>').value;
+
+            if (str.length < 8) {
+                document.getElementById('<%= lbPassStrength.ClientID %>').innerHTML = "Password Strength: Very Weak";
+                document.getElementById('<%= lbPassStrength.ClientID %>').style.color = "Red";
+                return "too_short";
+            }
+
+            else if (str.search(/[a-z]/) == -1) {
+                document.getElementById('<%= lbPassStrength.ClientID %>').innerHTML = "Password Strength: Weak";
+                document.getElementById('<%= lbPassStrength.ClientID %>').style.color = "#FF8C00";
+                return "no_lwc";
+            }
+
+            else if (str.search(/[A-Z]/) == -1) {
+                document.getElementById('<%= lbPassStrength.ClientID %>').innerHTML = "Password Strength: Medium";
+                document.getElementById('<%= lbPassStrength.ClientID %>').style.color = "#FFCC00";
+                return "no_upc";
+            }
+
+            else if (str.search(/[0-9]/) == -1) {
+                document.getElementById('<%= lbPassStrength.ClientID %>').innerHTML = "Password Strength: Okay";
+                document.getElementById('<%= lbPassStrength.ClientID %>').style.color = "#FFCC00";
+                return "no_number";
+            }
+
+            else if (str.search(/[!*@#$%^&+=]/) == -1) {
+                document.getElementById('<%= lbPassStrength.ClientID %>').innerHTML = "Password Strength: Strong";
+                document.getElementById('<%= lbPassStrength.ClientID %>').style.color = "#FFCC00";
+                return "no_spc";
+            }
+
+            document.getElementById('<%= lbPassStrength.ClientID %>').innerHTML = "Password Strength: Very Strong";
+            document.getElementById('<%= lbPassStrength.ClientID %>').style.color = "Lime";
+            return "good";
+        }
+    </script>
 
     </asp:Content>
 

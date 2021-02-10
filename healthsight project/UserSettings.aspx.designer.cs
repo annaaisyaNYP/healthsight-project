@@ -105,13 +105,13 @@ namespace healthsight_project
         protected global::System.Web.UI.WebControls.TextBox tbNewPass;
 
         /// <summary>
-        /// Label1 control.
+        /// lbPassStrength control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lbPassStrength;
 
         /// <summary>
         /// tbConPass control.
@@ -130,5 +130,14 @@ namespace healthsight_project
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpdPass;
+
+        /// <summary>
+        /// btnDeleteAcc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDeleteAcc;
     }
 }
