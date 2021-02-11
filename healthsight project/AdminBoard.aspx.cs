@@ -54,7 +54,7 @@ namespace healthsight_project
                 {
                     PanelDelete.Visible = Visible;
                     Session["DeleteAccByEmail"] = email;
-                    lbAlert.Text += "You are about to delete the account linked to " + email + " .</br>";
+                    lbAlert.Text += "You are about to delete the account linked to " + email ;
                 }
             }
         }
@@ -63,7 +63,7 @@ namespace healthsight_project
         {
             if (!IsPasswordCorrect(Session["LoggedIn"].ToString(), tbConPass.Text))
             {
-                lbAlert.Text += "Incorrect Password.";
+                lbAlert1.Text = "Incorrect Password. ";
             }
             else
             {

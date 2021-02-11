@@ -125,6 +125,7 @@ namespace healthsight_project
 
             if (validLogin)
             {
+                Session["SettingsResponse"] = "";
                 MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
                 User userData = client.GetUserByEmail(tbEmail.Text);
                 if (userData.Email == "admin@enterprise.com")

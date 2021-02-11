@@ -193,6 +193,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="teampic.png" />
     <Content Include="UpdateAddr.aspx" />
     <Content Include="UpdateContactNo.aspx" />
     <Content Include="UpdateEmail.aspx" />

@@ -8,12 +8,15 @@
 
     <asp:Panel ID="PanelDelete" Visible=false runat="server" CssClass="panel panel-danger">
         <div class ="panel-heading"><h3>Are you sure?</h3></div>
-        <div class ="panel-body">
+        <div class ="panel-body" style="margin-left: 15px;">
             <div class="row">
                 <asp:Label ID="lbAlert" runat="server"></asp:Label>
             </div>
             <div class="row">
-                Enter password: <asp:TextBox ID="tbConPass" runat="server"></asp:TextBox>
+                <asp:Label ID="lbAlert1" runat="server" ForeColor="Red"></asp:Label>
+            </div>
+            <div class="row">
+                Enter password: <asp:TextBox ID="tbConPass" runat="server" TextMode="Password"></asp:TextBox>
             </div>
             <div class="row">
                 <asp:Button ID="btnDeleteAccYes" runat="server" Text="Confrim" CssClass="btn btn-danger" OnClick="btnDeleteAccYes_Click" />
