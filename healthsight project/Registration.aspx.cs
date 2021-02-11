@@ -63,6 +63,7 @@ namespace healthsight_project
             }
 
             // NRIC ERROR MSG 
+            // TODO: Decrypt NRIC to compare OR is this redundant?
             MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
             Patient patient = client.GetPatientByNRIC(tbNRIC.Text);
             if (patient != null)
@@ -115,7 +116,7 @@ namespace healthsight_project
             }
 
             // All Clear:
-            if (String.IsNullOrEmpty(lbMsg.Text))
+            if (String.IsNullOrEmpty(lbMsg.Text) && lbPassER.Text == "" && lbConPassER.Text == "")
             {
                 return true;
             }
@@ -298,7 +299,7 @@ namespace healthsight_project
         {
             bool validinput = ValidateInput();
 
-            if (validinput && lbPassER.Text == "")
+            if (validinput)
             {
                 //Encrypting Password
                 string pwd = tbPass.Text.ToString().Trim(); ;

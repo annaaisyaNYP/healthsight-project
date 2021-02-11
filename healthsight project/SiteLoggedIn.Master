@@ -46,12 +46,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Healthsight</a>
+                    <a class="navbar-brand" runat="server" href="~/UserBoard">Healthsight</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/UserSettings">Settings</a></li>
-                        <li><a runat="server" href="~/">Logout</a></li>
                     </ul>
                 </div>
             </div>

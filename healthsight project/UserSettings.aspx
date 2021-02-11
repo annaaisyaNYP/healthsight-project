@@ -33,6 +33,7 @@
 
     <h3 id="ChaPassLink">Change Password</h3>
     <asp:Label ID="lbMsg" runat="server" ForeColor="Red"></asp:Label>
+    <asp:Label ID="lbSuccess" runat="server" ForeColor="Lime"></asp:Label>
     <table style="width: 810px;">
         <tr>
             <td style="width: 210px; height: 30px;">Current Password</td>

@@ -17,12 +17,13 @@ namespace healthsight_project
         protected void Page_Load(object sender, EventArgs e)
         {
             lbMsg.Text = "";
+            lbSuccess.Text = "";
             string email = Session["LoggedIn"].ToString();
             MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
             Patient patientData = client.GetPatientByEmail(email);
-            lbEmail.Text += patientData.Email;
-            lbPhoneNo.Text += patientData.PhoneNo;
-            lbAddr.Text += patientData.Addr;
+            lbEmail.Text = patientData.Email;
+            lbPhoneNo.Text = Convert.ToString(patientData.PhoneNo);
+            lbAddr.Text = patientData.Addr;
         }
 
         // Created with reference from the above method
@@ -79,7 +80,7 @@ namespace healthsight_project
             {
                 lbMsg.Text += "Invalid Password. Please follow the requirements. </br>";
             }
-            if (tbNewPass.Text == tbConPass.Text)
+            if (tbNewPass.Text != tbConPass.Text)
             {
                 lbMsg.Text += "Passwords do not match. </br>";
             }
@@ -166,7 +167,7 @@ namespace healthsight_project
 
                 if (result == 1)
                 {
-                    //PanelSuccess.Visible = true;
+                    lbSuccess.Text += "Password changed successfully.";
                 }
             }
         }

@@ -28,7 +28,7 @@ namespace healthsight_project
         }
 
         //bool ConfirmDelete() 
-        //TODO: implement confirm delete with js
+        //TODO: Implement confirm delete with js
 
         protected void GVRegisteredUsers_RowCommand(Object sender, GridViewCommandEventArgs e)
         {
@@ -47,21 +47,26 @@ namespace healthsight_project
                 TableCell TableEmail = selectedRow.Cells[3];
                 string email = TableEmail.Text;
 
-                int RemovePatient;
-                int RemoveUser;
-                MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
-                RemovePatient = client.DeletePatientByEmail(email);
-                RemoveUser = client.DeleteUserByEmail(email);
-
-                if(RemovePatient == 0 || RemoveUser == 0)
+                if (email == "admin@enterprise.com")
                 {
-                    lbMsg.Text += "Deleting user failed";
+                    lbMsg.Text += "Admin user cannot be deleted.";
                 }
                 else
                 {
-                    lbMsg.Text += "User with " + email + " has been deleted.";
+                    MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
+                    int RemovePatient = client.DeletePatientByEmail(email);
+                    int RemoveUser = client.DeleteUserByEmail(email);
+
+                    if (RemovePatient == 0 || RemoveUser == 0)
+                    {
+                        lbMsg.Text += "Deleting user failed";
+                    }
+                    else
+                    {
+                        lbMsg.Text += "User with " + email + " has been deleted.";
+                    }
+                    RefreshGridView();
                 }
-                RefreshGridView();
             }
         }
     }
