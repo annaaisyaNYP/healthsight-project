@@ -32,6 +32,7 @@ namespace healthsight_project
                 if (patient == 1 && user == 1)
                 {
                     Session["LoggedIn"] = newEmail;
+                    Session["SettingsResponse"] = "Email successfully updated.";
                     Response.Redirect("UserSettings.aspx");
                 }
             }

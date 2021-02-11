@@ -1,8 +1,18 @@
 ﻿<%@ Page Title="Settings" Language="C#" MasterPageFile="~/SiteLoggedIn.Master" AutoEventWireup="true" CodeBehind="UserSettings.aspx.cs" Inherits="healthsight_project.UserSettings" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%:Title %></h2>
 
-    <asp:Button ID="btnLogout" runat="server" Text="Logout" CssClass="btn " OnClick="btnLogout_Click" />
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h2><%:Title %></h2>
+
+      <asp:Button ID="btnLogout" runat="server" Text="Logout" CssClass="btn btn-info" OnClick="btnLogout_Click" />
+    </div>
+
+    <asp:Panel ID="PanelSuccess" Visible="false" runat="server" CssClass="alert alert-dismissable alert-success">
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <asp:Label ID="lbSuccess" runat="server"></asp:Label>
+    </asp:Panel>
 
     <h3>Update Info</h3>
     <table style="width: 800px;">
@@ -33,7 +43,6 @@
 
     <h3 id="ChaPassLink">Change Password</h3>
     <asp:Label ID="lbMsg" runat="server" ForeColor="Red"></asp:Label>
-    <asp:Label ID="lbSuccess" runat="server" ForeColor="Lime"></asp:Label>
     <table style="width: 810px;">
         <tr>
             <td style="width: 210px; height: 30px;">Current Password</td>
@@ -79,8 +88,7 @@
         </tr>
     </table></br>
 
-    <asp:Button ID="btnDeleteAcc" runat="server" Text="Delete Account" CssClass="btn btn-danger" />
-
+    <asp:Button ID="btnDeleteAcc" runat="server" Text="Delete Account" CssClass="btn btn-danger" style="margin-top: 0" />
     <script type="text/javascript">
         function validate() {
             var str = document.getElementById('<%= tbNewPass.ClientID %>').value;
@@ -120,7 +128,6 @@
             return "good";
         }
     </script>
-
     </asp:Content>
 
 

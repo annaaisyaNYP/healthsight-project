@@ -27,6 +27,7 @@ namespace healthsight_project
 
                 if (result == 1)
                 {
+                    Session["SettingsResponse"] = "Address successfully updated.";
                     Response.Redirect("UserSettings.aspx");
                 }
             }

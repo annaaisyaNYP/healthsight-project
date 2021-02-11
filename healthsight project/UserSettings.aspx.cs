@@ -18,12 +18,22 @@ namespace healthsight_project
         {
             lbMsg.Text = "";
             lbSuccess.Text = "";
+
+            // Present user information
             string email = Session["LoggedIn"].ToString();
             MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
             Patient patientData = client.GetPatientByEmail(email);
+
             lbEmail.Text = patientData.Email;
             lbPhoneNo.Text = Convert.ToString(patientData.PhoneNo);
             lbAddr.Text = patientData.Addr;
+
+            // Show Success Alert
+            if (Session["SettingsResponse"].ToString() != "")
+            {
+                PanelSuccess.Visible = Visible;
+                lbSuccess.Text = Session["SettingsResponse"].ToString();
+            }
         }
 
         // Created with reference from the above method
@@ -167,7 +177,7 @@ namespace healthsight_project
 
                 if (result == 1)
                 {
-                    lbSuccess.Text += "Password changed successfully.";
+                    Session["SettingsResponse"] = "Password changed successfully.";
                 }
             }
         }

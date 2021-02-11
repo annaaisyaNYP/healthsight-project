@@ -28,6 +28,7 @@ namespace healthsight_project
 
                 if (result == 1)
                 {
+                    Session["SettingsResponse"] = "Contact number successfully updated.";
                     Response.Redirect("UserSettings.aspx");
                 }
 
