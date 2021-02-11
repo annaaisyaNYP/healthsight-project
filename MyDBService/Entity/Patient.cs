@@ -319,7 +319,7 @@ namespace MyDBService.Entity
 
             //sqlCmd.Parameters.AddWithValue("@para",);
             sqlCmd.Parameters.AddWithValue("@paraEmail", email);
-            sqlCmd.Parameters.AddWithValue("@paraAddr", phoneNo);
+            sqlCmd.Parameters.AddWithValue("@paraPhoneNo", phoneNo);
 
             myConn.Open();
             int result = sqlCmd.ExecuteNonQuery();
