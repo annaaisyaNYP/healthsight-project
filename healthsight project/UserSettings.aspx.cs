@@ -181,5 +181,44 @@ namespace healthsight_project
                 }
             }
         }
+
+        protected void btnDeleteAcc_Click(object sender, EventArgs e)
+        {
+            PanelDelete.Visible = Visible;
+        }
+
+        protected void btnDeleteAccYes_Click(object sender, EventArgs e)
+        {
+            string email = Session["LoggedIn"].ToString();
+            MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
+            int patientDlt = client.DeletePatientByEmail(email);
+            int userDlt = client.DeleteUserByEmail(email);
+
+            if (patientDlt == 1 && userDlt == 1)
+            {
+                Session.Clear();
+                Session.Abandon();
+                Session.RemoveAll();
+
+                if (Request.Cookies["ASP.NET_SessionId"] != null)
+                {
+                    Response.Cookies["ASP.NET_SessionId"].Value = string.Empty;
+                    Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddMonths(-20);
+                }
+
+                if (Request.Cookies["AuthToken"] != null)
+                {
+                    Response.Cookies["AuthToken"].Value = string.Empty;
+                    Response.Cookies["AuthToken"].Expires = DateTime.Now.AddMonths(-20);
+                }
+
+                Response.Redirect("Login.aspx", false);
+            }
+        }
+
+        protected void btnDeleteAccNo_Click(object sender, EventArgs e)
+        {
+            PanelDelete.Visible = Visible;
+        }
     }
 }
