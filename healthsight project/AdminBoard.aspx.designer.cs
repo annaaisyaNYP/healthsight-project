@@ -24,51 +24,6 @@ namespace healthsight_project
         protected global::System.Web.UI.WebControls.Label lbMsg;
 
         /// <summary>
-        /// PanelDelete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelDelete;
-
-        /// <summary>
-        /// lbAlert control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbAlert;
-
-        /// <summary>
-        /// tbConPass control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbConPass;
-
-        /// <summary>
-        /// btnDeleteAccYes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDeleteAccYes;
-
-        /// <summary>
-        /// btnDeleteAccNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDeleteAccNo;
-
-        /// <summary>
         /// GVRegisteredUsers control.
         /// </summary>
         /// <remarks>

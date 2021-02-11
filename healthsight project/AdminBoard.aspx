@@ -5,24 +5,6 @@
     <h3>Registered Users</h3>
     <!-- TO DO: Fix the mix up btw name and nric-->
     <asp:Label ID="lbMsg" runat="server" ForeColor="Red"></asp:Label>
-
-    <asp:Panel ID="PanelDelete" Visible=false runat="server" CssClass="panel panel-danger">
-        <div class ="panel-heading"><h3>Are you sure?</h3></div>
-        <div class ="panel-body">
-            <div class="row">
-                <asp:Label ID="lbAlert" runat="server"></asp:Label>
-            </div>
-            <div class="row">
-                Enter password: <asp:TextBox ID="tbConPass" runat="server"></asp:TextBox>
-            </div>
-            <div class="row">
-                <asp:Button ID="btnDeleteAccYes" runat="server" Text="Confrim" CssClass="btn btn-danger" OnClick="btnDeleteAccYes_Click" />
-                <asp:Button ID="btnDeleteAccNo" runat="server" Text="Cancel" CssClass="btn btn-link" OnClick="btnDeleteAccNo_Click" />
-            </div>
-            
-        </div>
-    </asp:Panel>
-
     <asp:GridView ID="GVRegisteredUsers" runat="server" Width="100%" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" 
       onrowcommand="GVRegisteredUsers_RowCommand">
         <Columns>
