@@ -38,7 +38,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar navbar-default navbar-fixed-top" style="background-color: #e3f2fd;">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -46,7 +46,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/UserBoard">Healthsight</a>
+                    <a class="navbar-brand" runat="server" href="~/UserBoard" style="color: goldenrod;">Healthsight</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
