@@ -130,6 +130,7 @@ namespace healthsight_project
                 if (userData.Email == "admin@enterprise.com")
                 {
                     Session["LoggedIn"] = userData.Email;
+                    Session["SettingsResponse"] = "";
 
                     string guid = Guid.NewGuid().ToString();
                     Session["AuthToken"] = guid;

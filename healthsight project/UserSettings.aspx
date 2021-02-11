@@ -88,7 +88,8 @@
         </tr>
     </table></br>
 
-    <asp:Button ID="btnDeleteAcc" runat="server" Text="Delete Account" CssClass="btn btn-danger" style="margin-top: 0" OnClick="btnDeleteAcc_Click" /></br>
+    <asp:Button ID="btnDeleteAcc" runat="server" Text="Delete Account" CssClass="btn btn-danger" style="margin-top: 0" OnClick="btnDeleteAcc_Click" />
+    
     <asp:Panel ID="PanelDelete" Visible=false runat="server" CssClass="alert alert-dismissable alert-danger"><h3>Are you sure?</h3>
       <asp:Button ID="btnDeleteAccYes" runat="server" Text="Confrim" CssClass="btn btn-danger" OnClick="btnDeleteAccYes_Click" />
       <asp:Button ID="btnDeleteAccNo" runat="server" Text="Cancel" CssClass="btn btn-link" OnClick="btnDeleteAccNo_Click" />
