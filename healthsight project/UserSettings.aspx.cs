@@ -35,11 +35,15 @@ namespace healthsight_project
                 lbSuccess.Text = Session["SettingsResponse"].ToString();
             }
 
-            // Prevent admin to delete itself.
+            // Prevent admin to delete itself
+            // & allows admin to return to admin board.
             if (Session["LoggedIn"].ToString() == "admin@enterprise.com")
             {
                 btnDeleteAcc.Visible = false;
+                btnAdmin.Visible = true;
             }
+
+            
         }
 
         public bool IsPasswordValid(string pwd)
@@ -224,6 +228,11 @@ namespace healthsight_project
         protected void btnDeleteAccNo_Click(object sender, EventArgs e)
         {
             PanelDelete.Visible = false;
+        }
+
+        protected void btnAdmin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminBoard");
         }
     }
 }

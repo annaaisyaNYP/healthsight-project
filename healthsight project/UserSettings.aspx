@@ -4,7 +4,10 @@
     <div style="display: flex; justify-content: space-between; align-items: center;">
       <h2><%:Title %></h2>
 
-      <asp:Button ID="btnLogout" runat="server" Text="Logout" CssClass="btn btn-info" OnClick="btnLogout_Click" />
+      <div>
+          <asp:Button ID="btnAdmin" runat="server" Text="Return to Admin Board" CssClass="btn btn-info" style="margin-top: 0" Visible=false OnClick="btnAdmin_Click" />
+          <asp:Button ID="btnLogout" runat="server" Text="Logout" CssClass="btn btn-info" OnClick="btnLogout_Click" />
+      </div>
     </div>
 
     <asp:Panel ID="PanelSuccess" Visible="false" runat="server" CssClass="alert alert-dismissable alert-success">
@@ -86,13 +89,14 @@
             <td style="height: 32px;">
                 &nbsp;</td>
         </tr>
-    </table></br>
+    </table><br/>
 
-    <asp:Button ID="btnDeleteAcc" runat="server" Text="Delete Account" CssClass="btn btn-danger" style="margin-top: 0" OnClick="btnDeleteAcc_Click" /></br>
+    <asp:Button ID="btnDeleteAcc" runat="server" Text="Delete Account" CssClass="btn btn-danger" style="margin-top: 0" OnClick="btnDeleteAcc_Click" /><br/>
     <asp:Panel ID="PanelDelete" Visible=false runat="server" CssClass="alert alert-dismissable alert-danger"><h3>Are you sure?</h3>
       <asp:Button ID="btnDeleteAccYes" runat="server" Text="Confrim" CssClass="btn btn-danger" OnClick="btnDeleteAccYes_Click" />
       <asp:Button ID="btnDeleteAccNo" runat="server" Text="Cancel" CssClass="btn btn-link" OnClick="btnDeleteAccNo_Click" />
     </asp:Panel>
+    
     <script type="text/javascript">
         function validate() {
             var str = document.getElementById('<%= tbNewPass.ClientID %>').value;
